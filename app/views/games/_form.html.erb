@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="col-md-8">
+		<%= form_with model: game do |form| %>
+			<%= form.hidden_field :user_id, value: '1' %>
+
+			<div class='mt-3'>
+				<%= form.label :title, 'Game title:', class: 'form-label mb-0' %>
+				<%= form.text_field :title, class: 'form-control' %>
+			</div>
+			<div class='mt-3'>
+				<%= form.label :description, 'Game description:', class: 'form-label mb-0' %>
+				<%= form.text_area :description, class: 'form-control' %>
+			</div>
+			<div class='mt-3'>
+				<%= form.label :address, 'Game address:', class: 'form-label mb-0' %>
+				<%= form.text_field :address, class: 'form-control' %>
+			</div>
+			<div class='mt-3'>
+				<%= form.label :datetime, 'Game datetime:', class: 'form-label mb-0 me-3' %>
+				<%= form.datetime_select :datetime, order: [:day, :month, :year], 
+					class: 'form-control' %>
+			</div>
+			<div class='mt-4 mb-5'><%= form.submit 'Submit', class: 'btn btn-primary' %></div>
+		<% end %>
+	</div>
+</div>

@@ -1,2 +1,28 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
+<div class="container">
+	<div class="h2">User scheduled this game:</div>
+	<div class="row">
+		<div class="col-8">
+			<div class="bg-light rounded p-4 mb-3">
+				<div class="h3 mb-4"><%= @game.title %></div>
+				<div class="h5 mb-2">Description</div>
+				<p class="mb-4"><%= @game.description %></p>		
+				<div class="h5 mb-2">Address</div>
+				<p class="mb-4"><%= @game.address %></p>
+				<div class="h5 mb-2">Datetime</div>
+				<p class="mb-4"><%= @game.datetime %></p>
+				<div class="d-flex">
+					<div class="mb-4">
+						<%= link_to 'Edit', edit_game_path(@game), class: 'btn btn-warning me-5' %>
+					</div>
+					<div>
+						<%= button_to 'Delete', game_path(@game), method: :delete, 
+							class: 'btn btn-danger', data: { turbo_confirm: 'Are you sure?' } %>
+					</div>
+				</div>
+			</div>
+			<div class="mb-5">
+				<%= link_to 'Back', :back %>
+			</div>
+		</div>
+	</div>
+</div>

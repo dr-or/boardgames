@@ -1,2 +1,16 @@
-<h1>Games#index</h1>
-<p>Find me in app/views/games/index.html.erb</p>
+<div class="container-sm mb-3">
+	<%= link_to 'New game', new_game_path, class: 'btn btn-success' %>	
+</div>
+
+<div class="container-sm">
+	<% @games.each_slice(2) do |game1, game2| %>
+		<div class="row mb-3">
+			<div class="col-4">
+				<%= render 'game_card', game: game1 %>
+			</div>
+			<div class="col-4">
+				<%= render 'game_card', game: game2 if game2 %>
+			</div>
+		</div>		
+	<% end %>
+</div>
