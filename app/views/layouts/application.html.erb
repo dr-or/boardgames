@@ -16,6 +16,13 @@
         <%= link_to 'BOARD GAMES', games_path, class: 'navbar-brand mb-0 ms-sm-5 h1' %>
       </div>
     </nav>
+    <% if flash.present? %>
+      <div class="container-sm">
+        <div class="alert alert-warning">
+          <%= flash[:notice] %>
+        </div>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -11,7 +11,7 @@ class GamesController < ApplicationController
     if @game.save
       redirect_to game_path(@game), notice: 'Game is scheduled.'
     else
-      render :new, alert: 'Data is invalid.'
+      render :new
     end
   end
 
@@ -29,7 +29,7 @@ class GamesController < ApplicationController
     if @game.update(game_params)
       redirect_to game_path(@game), notice: 'Changes applied.'
     else
-      render :edit, alert: 'Data is invalid.'
+      render :edit
     end
   end
 
