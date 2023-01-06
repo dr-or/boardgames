@@ -1,12 +1,13 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :set_current_user_game, only: %i[edit update destroy]
 
   def index
     @games = Game.all
   end
 
   def create
-    @game = Game.new(game_params)
+    @game = current_user.games.build(game_params)
 
     if @game.save
       redirect_to game_path(@game), notice: 'Game is scheduled.'
@@ -16,13 +17,14 @@ class GamesController < ApplicationController
   end
 
   def new
-    @game = Game.new
+    @game = current_user.games.build
   end
 
   def edit
   end
 
   def show
+    @game = Game.find(params[:id])
   end
 
   def update
@@ -44,7 +46,7 @@ class GamesController < ApplicationController
     params.require(:game).permit(:title, :description, :address, :datetime, :user_id)
   end
 
-  def set_game
-    @game = Game.find(params[:id])
+  def set_current_user_game
+    @game = current_user.games.find(params[:id])
   end
 end

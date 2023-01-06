@@ -1,22 +1,17 @@
-<div class="container">
-	<div class="h2">Edit your profile</div>
-	
-	<div class="row">
-		<div class="col-md-8">
-			<%= render partial: 'partials/errors', locals: {model: @user} %>
+<div class="h2">Edit your profile</div>
 
-			<%= form_with model: @user, data: { turbo: false } do |form| %>
-				<div class='mt-3'>
-					<%= form.label :name, 'Your name:', class: 'form-label mb-0' %>
-					<%= form.text_field :name, class: 'form-control' %>
-				</div>
-				<div class='mt-3'>
-					<%= form.label :email, 'Your email:', class: 'form-label mb-0' %>
-					<%= form.text_field :email, class: 'form-control' %>
-				</div>
-				<div class='mt-4 mb-4'><%= form.submit 'Submit', class: 'btn btn-primary' %></div>
-			<% end %>
-		</div>
+<%= render partial: 'partials/errors', locals: {model: @user} %>
+
+<%= form_with model: @user, data: { turbo: false } do |form| %>
+	<div class='mt-3'>
+		<%= form.label :name, 'Your name:', class: 'form-label mb-0' %>
+		<%= form.text_field :name, class: 'form-control' %>
 	</div>
-	<%= link_to 'Change password', edit_user_registration_path %>
-</div>
+	<div class='mt-3'>
+		<%= form.label :email, 'Your email:', class: 'form-label mb-0' %>
+		<%= form.text_field :email, class: 'form-control' %>
+	</div>
+	<div class='mt-4 mb-4'><%= form.submit 'Submit', class: 'btn btn-primary' %></div>
+<% end %>
+
+<%= link_to 'Change password', edit_user_registration_path %>
