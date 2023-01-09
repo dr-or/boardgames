@@ -17,7 +17,7 @@ class GamesController < ApplicationController
   end
 
   def new
-    @game = current_user.games.build
+    @game = current_user.games.build(user_id: params[:user_id])
   end
 
   def edit
@@ -43,7 +43,7 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:title, :description, :address, :datetime, :user_id)
+    params.require(:game).permit(:title, :description, :address, :datetime)
   end
 
   def set_current_user_game
