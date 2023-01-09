@@ -29,22 +29,24 @@
         </div>  
       </div>
     </nav>
-    <% if flash[:notice].present? %>
-      <div class='container-sm'>
-        <div class='alert alert-warning'>
-          <%= flash[:notice] %>
-        </div>
-      </div>
-    <% elsif flash[:alert].present? %>
-      <div class='container-sm'>
-        <div class='alert alert-danger'>
-          <%= flash[:alert] %>
-        </div>
-      </div>
-    <% end %>
     <div class="container">
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-md-8">
+          <% if flash[:notice].present? %>
+            <div class='container-sm'>
+              <div class="alert alert-success alert-dismissible">
+                <%= flash[:notice] %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+              </div>
+            </div>
+          <% elsif flash[:alert].present? %>
+            <div class='container-sm'>
+              <div class='alert alert-danger alert-dismissible'>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <%= flash[:alert] %>
+              </div>
+            </div>
+          <% end %>
           <%= yield %>
         </div>
       </div>
