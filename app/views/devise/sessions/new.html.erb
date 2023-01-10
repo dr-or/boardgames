@@ -1,10 +1,11 @@
 <div class="row justify-content-center">
   <div class="col-sm-6">
-    <div class="card">
+    <div class="card mb-3">
       <div class="card-header h5">Log in</div>
 
       <div class="card-body">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name),
+                     data: { turbo: false }) do |f| %>
           <div class="mb-3">
             <%= f.label :email, class: "form-label mb-0 fw-bold" %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
@@ -27,7 +28,7 @@
           </div>
         <% end %>
       </div>
-      <div class="card-footer text-decoration-none">
+      <div class="card-footer">
         <%= render "devise/shared/links" %>
       </div>
     </div>
