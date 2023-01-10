@@ -19,7 +19,7 @@
             <%= link_to current_user.name, current_user, 
               class: 'btn btn-success me-sm-3' %>
             <%= button_to 'Sign out', destroy_user_session_path, method: :delete,
-              class: 'btn btn-danger me-sm-5' %>
+              class: 'btn btn-danger me-sm-5', data: { turbo: false } %>
           <% else %>
             <%= link_to 'Sign up', new_user_registration_path, 
               class: 'btn btn-warning me-sm-3' %>
