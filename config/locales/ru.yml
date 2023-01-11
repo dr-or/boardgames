@@ -14,3 +14,8 @@ ru:
         address: "Адрес"
         description: "Описание"
         datetime: "Дата и время"
+  controllers:
+    games:
+      created: "Игра запланирована."
+      updated: "Информация об игре обновлена."
+      destroyed: "Игра отменена."

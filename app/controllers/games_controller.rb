@@ -10,7 +10,7 @@ class GamesController < ApplicationController
     @game = current_user.games.build(game_params)
 
     if @game.save
-      redirect_to game_path(@game), notice: 'Game is scheduled.'
+      redirect_to game_path(@game), notice: I18n.t('controllers.games.created')
     else
       render :new
     end
@@ -29,7 +29,7 @@ class GamesController < ApplicationController
 
   def update
     if @game.update(game_params)
-      redirect_to game_path(@game), notice: 'Changes applied.'
+      redirect_to game_path(@game), notice: I18n.t('controllers.games.updated')
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class GamesController < ApplicationController
 
   def destroy
     @game.destroy
-    redirect_to root_path, notice: 'Game is canceled.'
+    redirect_to root_path, notice: I18n.t('controllers.games.destroyed')
   end
 
   private
