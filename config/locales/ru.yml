@@ -1,0 +1,16 @@
+ru:
+  activerecord:
+    models:
+      user: "Пользователь"
+      game: "Игра"
+    attributes:
+      user:
+        email: "Email"
+        name: "Имя"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+      game:
+        title: "Название"
+        address: "Адрес"
+        description: "Описание"
+        datetime: "Дата и время"
