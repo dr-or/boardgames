@@ -8,7 +8,7 @@ gem 'bootstrap', '~> 5.2.2'
 
 gem 'devise'
 gem 'devise-i18n'
-gem 'russian'
+gem 'rails-i18n'
 
 gem 'importmap-rails'
 gem 'puma', '~> 5.0'
