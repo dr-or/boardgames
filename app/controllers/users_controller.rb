@@ -11,9 +11,10 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to user_path(@user), notice: 'Changes applied.'
+      redirect_to user_path(@user), notice: I18n.t('controllers.users.updated.success')
     else
-      render :edit, alert: 'Data is invalid.'
+      flash.now[:alert] = I18n.t('controllers.users.updated.failure')
+      render :edit
     end
   end
 
