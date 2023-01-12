@@ -2,7 +2,7 @@
 	<div class="card-body">
 		<h4 class="card-title"><%= game.title %></h4>
 		<p class="card-text"><%= game.address %></p>
-		<p class="card-text"><%= game.datetime %></p>
-		<%= link_to 'Find out the details', game_path(game) %>
+		<p class="card-text"><%= l game.datetime, format: :long %></p>
+		<%= link_to t('views.partials.game_card.game_link'), game_path(game), class: "text-decoration-none" %>
 	</div>
 </div>

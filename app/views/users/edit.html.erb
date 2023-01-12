@@ -4,7 +4,7 @@
 			<div class="card-header h5">Edit your profile</div>
 			
 			<div class="card-body">
-				<%= render partial: "partials/errors", locals: {model: @user} %>
+				<%= render partial: "partials/error_messages", locals: { model: @user} %>
 	
 				<%= form_with model: @user, data: { turbo: false } do |form| %>
 					<div class="mb-3">

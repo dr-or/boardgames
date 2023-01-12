@@ -6,7 +6,7 @@
       <div class="card-body">
         <%= form_for(resource, as: resource_name, url: password_path(resource_name),
                      html: { method: :post }, data: { turbo: false }) do |f| %>
-          <%= render "partials/errors", model: resource %>
+          <%= render "partials/error_messages", model: resource %>
 
           <div class="mb-3">
             <%= f.label :email, class: "form-label mb-0 fw-bold" %><br />

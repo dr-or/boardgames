@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-8">
-		<%= render partial: 'partials/errors', locals: {model: game} %>
+		<%= render partial: 'partials/error_messages', locals: { model: game} %>
 
 		<%= form_with model: game, data: { turbo: false } do |form| %>
 			<%= form.hidden_field :user_id %>
