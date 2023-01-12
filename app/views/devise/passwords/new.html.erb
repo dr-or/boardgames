@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
   <div class="col-sm-6">
     <div class="card mb-3">
-      <div class="card-header h5">Forgot your password?</div>
+      <div class="card-header h5"><%= t("views.devise.new.forgot_your_password") %></div>
 
       <div class="card-body">
         <%= form_for(resource, as: resource_name, url: password_path(resource_name),
@@ -14,7 +14,7 @@
           </div>
 
           <div class="actions">
-            <%= f.submit "Send me reset password instructions", class: "btn btn-primary" %>
+            <%= f.submit t("views.devise.new.change_password"), class: "btn btn-primary" %>
           </div>
         <% end %>
       </div>

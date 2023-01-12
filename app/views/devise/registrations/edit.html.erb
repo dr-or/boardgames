@@ -1,22 +1,23 @@
 <div class="row justify-content-center">
   <div class="col-sm-6">
     <div class="card mb-3">
-      <div class="card-header h5">Edit <%= resource_name.to_s.humanize %></div>
+      <div class="card-header h5"><%= t("views.devise.registrations.edit.password_change") %></div>
       <div class="card-body">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
                      html: { method: :put }, data: { turbo: false }) do |f| %>
           <%= render "partials/error_messages", model: resource %>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <div><%= t("views.devise.registrations.edit.unconfirmed_email") %> <%= resource.unconfirmed_email %></div>
           <% end %>
 
           <div class="mb-3">
             <%= f.label :password, class: "form-label mb-0 fw-bold" %>
-            <p class="mb-0"><i>(leave blank if you don"t want to change it)</i></p>
+            <i>(<%= t("views.devise.registrations.edit.label_password") %>)</i>
             <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
             <% if @minimum_password_length %>
-              <p><em><%= @minimum_password_length %> characters minimum</em></p>
+              <p><em><%= @minimum_password_length %>
+                     <%= t("views.devise.registrations.edit.password_length") %></em></p>
             <% end %>
           </div>
 
@@ -28,26 +29,25 @@
 
           <div class="mb-3">
             <%= f.label :current_password, class: "form-label mb-0 fw-bold" %>
-            <p class="mb-0"><i>(we need your current password to confirm your changes)</i></p>
             <%= f.password_field :current_password, autocomplete: "current-password",
                                  class: "form-control" %>
           </div>
 
           <div>
-            <%= f.submit "Update", class: "btn btn-primary" %>
+            <%= f.submit t("views.submit"), class: "btn btn-primary" %>
           </div>
         <% end %>
 
         <hr>
-        <div class="h5">Cancel my account</div>
+        <div class="h5"><%= t("views.devise.registrations.edit.delete_account") %></div>
 
-        <p>Unhappy?
-          <%= button_to "Cancel my account", registration_path(resource_name),
+        <p><%= t("views.devise.registrations.edit.unhappy") %>
+          <%= button_to t("views.delete"), registration_path(resource_name),
                         data: { turbo_confirm: "Are you sure?" }, method: :delete,
                         class: "btn btn-danger" %></p>
       </div>
       <div class="card-footer">
-        <%= link_to "Back", :back, class: "text-decoration-none" %>
+        <%= link_to t("views.back"), :back, class: "text-decoration-none" %>
       </div>
     </div>
   </div>

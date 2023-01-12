@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
   <div class="col-sm-6">
     <div class="card mb-3">
-      <div class="card-header h5">Sign up</div>
+      <div class="card-header h5"><%= t("views.devise.registrations.new.registration") %></div>
 
       <div class="card-body">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
@@ -21,7 +21,7 @@
           <div class="mb-3">
             <%= f.label :password, class: "form-label mb-0 fw-bold" %>
             <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <em>(<%= @minimum_password_length %> <%= t("views.devise.registrations.edit.password_length") %>)</em>
             <% end %><br />
             <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
           </div>
@@ -32,7 +32,7 @@
           </div>
 
           <div class="actions">
-            <%= f.submit "Sign up", class: "btn btn-primary" %>
+            <%= f.submit t("views.devise.registrations.new.submit"), class: "btn btn-primary" %>
           </div>
         <% end %>
       </div>

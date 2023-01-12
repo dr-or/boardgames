@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
   <div class="col-sm-6">
     <div class="card mb-3">
-      <div class="card-header h5">Log in</div>
+      <div class="card-header h5"><%= t("views.devise.sessions.title") %></div>
 
       <div class="card-body">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name),
@@ -24,7 +24,7 @@
           <% end %>
 
           <div class="actions">
-            <%= f.submit "Log in", class: "btn btn-primary" %>
+            <%= f.submit t("views.devise.sessions.submit"), class: "btn btn-primary" %>
           </div>
         <% end %>
       </div>
