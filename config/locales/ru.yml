@@ -66,6 +66,12 @@ ru:
     partials:
       game_card:
         game_link: "Подробнее"
+      error_messages:
+        form_has: "При заполнении анкеты"
+        errors:
+          one: "допущена одна ошибка:"
+          few: "допущены %{count} ошибки:"
+          many: "допущены %{count} ошибок:"
 
     users:
       user_games: "Игры, запланированные этим пользователем:"

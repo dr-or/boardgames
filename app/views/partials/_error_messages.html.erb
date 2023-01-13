@@ -1,9 +1,16 @@
 <% if model.errors.any? %>
-	<ul class="alert alert-danger">
-		<% model.errors.full_messages.each do |message| %>
-			<li>
-		  	<%= message %>
-			</li>
-		<% end %>
-	</ul>
+	<div class="alert alert-danger">
+		<p class="h6">
+			<%= t("views.partials.error_messages.form_has") %>
+			<%= I18n.t("views.partials.error_messages.errors",
+								 count: model.errors.count) %>
+		</p>
+		<ul>
+			<% model.errors.full_messages.each do |message| %>
+				<li>
+					<%= message %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
 <% end %>
