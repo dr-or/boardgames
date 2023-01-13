@@ -39,7 +39,7 @@ ru:
         submit: "Войти"
       registrations:
         edit:
-          password_change: "Сменить пароль"
+          change_password: "Сменить пароль"
           unconfirmed_email: "В настоящее время ожидает подтверждения для"
           label_password: "оставьте пустым, если не хотите его менять"
           password_length: "символов минимум"
@@ -50,12 +50,11 @@ ru:
           submit: "Зарегистрироваться"
       new:
         forgot_your_password: "Забыли свой пароль?"
-        change_password: "Поменять пароль"
 
     games:
       index:
         new_game: "Новая игра"
-        unauthenticated: "Войдите или зарегистрируйтесь, чтобы запланировать игру."
+        unauthenticated: "Войдите или зарегистрируйтесь, чтобы запланировать свою игру."
       new:
         schedule_game: "Запланировать игру"
       show:
@@ -67,3 +66,7 @@ ru:
     partials:
       game_card:
         game_link: "Подробнее"
+
+    users:
+      user_games: "Игры, запланированные этим пользователем:"
+      no_games: "Этот пользователь ещё не запланировал ни одну игру."

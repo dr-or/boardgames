@@ -2,13 +2,13 @@
 	<p class="h1 mb-1"><%= @user.name %></p>
 	<p class="mb-3"><%= @user.email %></p>
 	<% if @user == current_user %>
-		<%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-warning' %>
+		<%= link_to t("views.edit"), edit_user_path(@user), class: "btn btn-warning" %>
 	<% end %>
 </div>
 <% if @user.games.any? %>
-	<p class="h2 text-center mt-3">This user`s games</p>
+	<p class="h2 text-center mt-3"><%= t("views.users.user_games") %></p>
 <% else %>
-	<p class="h5 text-center">This user has not participated in any game yet.</p>
+	<p class="h5 text-center"><%= t("views.users.no_games") %></p>
 <% end %>
 
-<%= render partial: 'partials/game_grid', locals: {games: @user.games} %>
+<%= render partial: "partials/game_grid", locals: {games: @user.games} %>
