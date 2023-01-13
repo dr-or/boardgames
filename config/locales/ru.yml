@@ -29,6 +29,7 @@ ru:
     back: "Назад"
     deletion_confirm: "Вы уверены?"
     delete: "Удалить"
+    app_title: "ТВОЯ ИГРА!"
     edit: "Редактировать"
     submit: "Подтвердить"
 
@@ -59,6 +60,9 @@ ru:
         schedule_game: "Запланировать игру"
       show:
         scheduled_game: "планирует сыграть в:"
+
+    layouts:
+      sign_out: "Выйти"
 
     partials:
       game_card:
