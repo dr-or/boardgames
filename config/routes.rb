@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root 'games#index'
 
-  resources :games
+  resources :games do
+    resources :comments, only: %i[create destroy]
+  end
   resources :users, only: %i[edit update show]
 end
