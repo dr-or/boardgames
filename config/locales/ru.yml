@@ -16,14 +16,17 @@ ru:
         datetime: "Дата и время"
 
   controllers:
+    error: "Упс! Что-то пошло не так."
     comments:
       created: "Комментарий отправлен."
       destroyed: "Комментарий удален."
-      error: "Упс! Что-то пошло не так."
     games:
       created: "Игра запланирована."
       updated: "Информация об игре обновлена."
       destroyed: "Игра отменена."
+    subscriptions:
+      created: "Подписка создана."
+      destroyed: "Подписка удалена."
     users:
       updated:
         success: "Информация о профиле обновлена."

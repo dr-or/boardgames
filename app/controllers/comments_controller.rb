@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     if @new_comment.save
       redirect_to game_path(@game), notice: I18n.t("controllers.comments.created")
     else
-      flash.now[:alert] = I18n.t("controllers.comments.error")
+      flash.now[:alert] = I18n.t("controllers.error")
       render "games/show"
     end
   end
@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
     if current_user_can_edit?(@game)
       @comment.destroy!
     else
-      message = {alert: I18n.t("controllers.comments.error")}
+      message = {alert: I18n.t("controllers.error")}
     end
 
     redirect_to game_path(@game), message
