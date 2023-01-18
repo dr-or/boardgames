@@ -22,3 +22,8 @@
 <div class="mb-5">
 	<%= link_to t("views.back"), :back, class: "text-decoration-none" %>
 </div>
+
+<div class="h3 mb-3">Comments:</div>
+<% @game.comments.each do |comment| %>
+	<%= render "partials/comment", comment: comment %>
+<% end %>
