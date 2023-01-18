@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :games
   has_many :comments, dependent: :destroy
+  has_many :subscriptions
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
