@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_18_103851) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_18_131758) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.string "user_name"
@@ -33,6 +33,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_18_103851) do
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "user_name"
+    t.string "user_email"
+    t.integer "game_id", null: false
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_subscriptions_on_game_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email", default: "", null: false
@@ -49,4 +60,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_18_103851) do
   add_foreign_key "comments", "games"
   add_foreign_key "comments", "users"
   add_foreign_key "games", "users"
+  add_foreign_key "subscriptions", "games"
+  add_foreign_key "subscriptions", "users"
 end
