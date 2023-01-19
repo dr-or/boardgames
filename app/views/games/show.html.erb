@@ -23,5 +23,12 @@
 	<%= link_to t("views.back"), :back, class: "text-decoration-none" %>
 </div>
 
-<div class="h3 mb-3">Comments:</div>
-<%= render partial: "partials/comment", collection: @game.comments %>
+<% if @game.subscriptions.any? %>
+	<div class="h3 mb-3"><%= t("views.games.show.participate") %></div>
+	<div class="mb-5 ps-3"><%= render partial: "partials/subscription", collection: @game.subscriptions %></div>
+<% end %>
+
+<% if @game.comments.any? %>
+	<div class="h3 mb-3"><%= t("views.games.show.comments") %></div>
+	<%= render partial: "partials/comment", collection: @game.comments %>
+<% end %>

@@ -66,6 +66,8 @@ ru:
         schedule_game: "Запланировать игру"
       show:
         scheduled_game: "планирует сыграть в:"
+        comments: "Комментарии:"
+        participate: "Участвуют:"
 
     layouts:
       sign_out: "Выйти"

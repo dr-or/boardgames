@@ -1,0 +1,5 @@
+<% if subscription.user.present? %>
+  <span><%= link_to subscription.user_name, user_path(subscription.user), class: "text-decoration-none" %></span>
+<% else %>
+  <span><%= subscription.user_name %></span>
+<% end %>
