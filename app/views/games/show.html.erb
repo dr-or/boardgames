@@ -24,6 +24,4 @@
 </div>
 
 <div class="h3 mb-3">Comments:</div>
-<% @game.comments.each do |comment| %>
-	<%= render "partials/comment", comment: comment %>
-<% end %>
+<%= render partial: "partials/comment", collection: @game.comments %>

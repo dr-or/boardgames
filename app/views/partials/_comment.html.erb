@@ -1,10 +1,11 @@
+<hr>
 <div class="px-3">
   <p class="fw-bold mb-0"><%= comment.user_name %>:</p>
   <p class="mb-1 fs-5"><%= comment.body %></p>
   <p class="fst-italic text-muted">
     <%= l comment.created_at, format: :long %>
     <% if current_user_can_edit?(comment) %>
-      <%= link_to fa_icon("trash"), game_comment_path(comment.game, comment),
+      <%= button_to "delete", game_comment_path(comment.game, comment),
           method: :delete, data: { turbo_confirm: t("views.deletion_confirm") } %>
     <% end %>
   </p>
