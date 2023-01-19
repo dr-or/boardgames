@@ -13,7 +13,9 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def current_user_can_edit?(game)
-    user_signed_in? && game.user == current_user
+  def current_user_can_edit?(model)
+    user_signed_in? &&
+      (model.user == current_user ||
+        (model.try(:event).present? && model.event.user == current_user))
   end
 end
