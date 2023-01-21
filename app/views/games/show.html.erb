@@ -30,5 +30,5 @@
 
 <% if @game.comments.any? %>
 	<div class="h3 mb-3"><%= t("views.games.show.comments") %></div>
-	<%= render partial: "partials/comment", collection: @game.comments %>
+	<div class="mb-5"><%= render partial: "partials/comment", collection: @game.comments %></div>
 <% end %>

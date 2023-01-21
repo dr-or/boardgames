@@ -2,11 +2,14 @@
 <div class="px-3">
   <p class="fw-bold mb-0"><%= comment.user_name %>:</p>
   <p class="mb-1 fs-5"><%= comment.body %></p>
-  <p class="fst-italic text-muted">
-    <%= l comment.created_at, format: :long %>
+  <div class="d-flex">
+    <div class="fst-italic text-muted"><%= l comment.created_at, format: :long %></div>
     <% if current_user_can_edit?(comment) %>
-      <%= button_to "delete", game_comment_path(comment.game, comment),
-          method: :delete, data: { turbo_confirm: t("views.deletion_confirm") } %>
+      <div class="ms-3">
+        <%= button_to bi_icon("trash"), game_comment_path(comment.game, comment),
+            method: :delete, class: "btn text-danger p-0", form_class: "d-inline",
+            data: { turbo_confirm: t("views.deletion_confirm") }, title: t("views.delete") %>
+      </div>
     <% end %>
-  </p>
+  </div>
 </div>
