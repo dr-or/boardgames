@@ -1,7 +1,7 @@
+<%= render "partials/error_messages", model: subscription %>
 <div class="row">
   <div class="col-sm-4">
     <%= form_for([@game, subscription], data: { turbo: false }) do |f| %>
-      <%= render "partials/error_messages", model: subscription %>
       <% unless user_signed_in? %>
         <div class="mb-3">
           <%= f.label :user_name, class: "form-label mb-0" %>
