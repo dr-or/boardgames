@@ -1,19 +1,27 @@
 ru:
   activerecord:
     models:
-      user: "Пользователь"
+      comment: "Комментарий"
       game: "Игра"
+      subscription: "Подписка"
+      user: "Пользователь"
     attributes:
-      user:
-        email: "Email"
-        name: "Имя"
-        password: "Пароль"
-        password_confirmation: "Подтверждение пароля"
+      comment:
+        body: "Текст"
+        user_name: "Имя"
       game:
         title: "Название"
         address: "Адрес"
         description: "Описание"
         datetime: "Дата и время"
+      subscription:
+        user_email: "Email"
+        user_name: "Имя"
+      user:
+        email: "Email"
+        name: "Имя"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
 
   controllers:
     error: "Упс! Что-то пошло не так."
