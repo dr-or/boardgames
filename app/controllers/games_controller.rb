@@ -25,7 +25,8 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    @new_comment = @game.comments.build
+    @new_comment = @game.comments.build(params[:comment])
+    @new_subscription = @game.subscriptions.build(params[:subscription])
   end
 
   def update
