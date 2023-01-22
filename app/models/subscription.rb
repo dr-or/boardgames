@@ -4,6 +4,7 @@ class Subscription < ApplicationRecord
 
   with_options if: -> { user.present? } do
     validates :user, uniqueness: {scope: :game_id}
+    validate :organizer_cant_be_subscriber
   end
 
   with_options unless: -> { user.present? } do
@@ -19,5 +20,11 @@ class Subscription < ApplicationRecord
 
   def user_email
     user&.email || super
+  end
+
+  private
+
+  def organizer_cant_be_subscriber
+    errors.add(:user, :forbidden) if user == game.user
   end
 end

@@ -1,5 +1,11 @@
 ru:
   activerecord:
+    errors:
+      models:
+        subscription:
+          attributes:
+            user:
+              forbidden: "не может подписываться на свои игры."
     models:
       comment: "Комментарий"
       game: "Игра"
@@ -15,6 +21,7 @@ ru:
         description: "Описание"
         datetime: "Дата и время"
       subscription:
+        user: "Пользователь"
         user_email: "Email"
         user_name: "Имя"
       user:
