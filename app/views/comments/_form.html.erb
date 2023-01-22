@@ -1,0 +1,20 @@
+<%= render "partials/error_messages", model: comment %>
+<div class="row">
+  <div class="col-sm-8">
+    <%= form_for([game, comment]) do |f| %>
+      <% unless user_signed_in? %>
+        <div class="mb-3">
+          <%= f.label :user_name, class: "form-label mb-0" %>
+          <%= f.text_field :user_name, class: "form-control" %>
+        </div>
+      <% end %>
+
+      <div class="mb-3">
+        <%= f.label :body, class: "form-label mb-0" %>
+        <%= f.text_area :body, class: "form-control" %>
+      </div>
+
+      <%= f.submit t("views.submit"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
