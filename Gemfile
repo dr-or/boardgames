@@ -5,6 +5,9 @@ ruby '3.1.2'
 
 gem 'bootsnap', require: false
 
+gem 'carrierwave'
+gem 'rmagick'
+
 gem 'devise'
 gem 'devise-i18n'
 gem 'rails-i18n'
