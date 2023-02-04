@@ -6,7 +6,8 @@
 			<div class="card-body">
 				<%= render partial: "partials/error_messages", locals: { model: @user} %>
 	
-				<%= form_with model: @user, data: { turbo: false } do |form| %>
+				<%= form_with model: @user, data: { turbo: false },
+											html: { multipart: true } do |form| %>
 					<div class="mb-3">
 						<%= form.label :name, class: "form-label mb-0 fw-bold" %>
 						<%= form.text_field :name, class: "form-control" %>
@@ -14,6 +15,11 @@
 					<div class="mb-3">
 						<%= form.label :email, class: "form-label mb-0 fw-bold" %>
 						<%= form.text_field :email, class: "form-control" %>
+					</div>
+					<div class="mb-3">
+						<%= form.label :avatar, class: "form-label mb-0 fw-bold" %>
+						<%= content_tag(:p, image_tag(@user.avatar.thumb.url)) if @user.avatar? %>
+						<%= form.file_field :avatar %>
 					</div>
 					<div><%= form.submit t("views.submit"), class: "btn btn-primary" %></div>
 				<% end %>

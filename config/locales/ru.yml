@@ -25,6 +25,7 @@ ru:
         user_email: "Email"
         user_name: "Имя"
       user:
+        avatar: "Аватар"
         email: "Email"
         name: "Имя"
         password: "Пароль"
