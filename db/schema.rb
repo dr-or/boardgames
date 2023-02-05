@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_03_143621) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_05_091302) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.string "user_name"
@@ -31,6 +31,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_03_143621) do
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "photo"
+    t.integer "game_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_photos_on_game_id"
+    t.index ["user_id"], name: "index_photos_on_user_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -61,6 +71,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_03_143621) do
   add_foreign_key "comments", "games"
   add_foreign_key "comments", "users"
   add_foreign_key "games", "users"
+  add_foreign_key "photos", "games"
+  add_foreign_key "photos", "users"
   add_foreign_key "subscriptions", "games"
   add_foreign_key "subscriptions", "users"
 end
