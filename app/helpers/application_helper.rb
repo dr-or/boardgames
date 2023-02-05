@@ -10,6 +10,16 @@ module ApplicationHelper
     end
   end
 
+  def game_photo(game)
+    photos = game.photos.persisted
+
+    if photos.any?
+      photos.sample.photo.url
+    else
+      asset_path("game.jpg")
+    end
+  end
+
   def user_avatar(user)
     if user.avatar?
       user.avatar.url

@@ -1,8 +1,8 @@
 <div class="card">
-	<img src="<%= asset_path("game.jpg") %>" class="card-img card-img-bg" alt="card-image">
+	<img src="<%= game_photo(game) %>" class="card-img card-img-bg" alt="card-image">
 	<div class="card-img-overlay">
-		<h4 class="card-title"><%= game.title %></h4>
-		<p class="card-text"><%= game.address %></p>
+		<h4 class="card-title truncate"><%= game.title %></h4>
+		<p class="card-text truncate"><%= game.address %></p>
 		<p class="card-text"><%= l game.datetime, format: :long %></p>
 		<%= link_to t('views.partials.game_card.game_link'), game_path(game), class: "text-decoration-none" %>
 	</div>

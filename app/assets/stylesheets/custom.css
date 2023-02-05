@@ -17,3 +17,9 @@ body {
   width: 100%;
   opacity: 15%;
 }
+
+.truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
