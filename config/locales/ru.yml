@@ -9,6 +9,7 @@ ru:
     models:
       comment: "Комментарий"
       game: "Игра"
+      photo: "Фото"
       subscription: "Подписка"
       user: "Пользователь"
     attributes:
@@ -20,6 +21,8 @@ ru:
         address: "Адрес"
         description: "Описание"
         datetime: "Дата и время"
+      photo:
+        photo: "Фото"
       subscription:
         user: "Пользователь"
         user_email: "Email"
@@ -40,6 +43,9 @@ ru:
       created: "Игра запланирована."
       updated: "Информация об игре обновлена."
       destroyed: "Игра отменена."
+    photos:
+      created: "Фотография добавлена."
+      destroyed: "Фотография удалена."
     subscriptions:
       created: "Подписка создана."
       destroyed: "Подписка удалена."
