@@ -10,3 +10,10 @@ body {
   height: 20px;
   margin-top: -2px;
 }
+
+.card-img-bg {
+  height: 15vw;
+  object-fit: cover;
+  width: 100%;
+  opacity: 15%;
+}

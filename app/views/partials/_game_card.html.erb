@@ -1,5 +1,6 @@
-<div class="card bg-light h-100">
-	<div class="card-body">
+<div class="card">
+	<img src="<%= asset_path("game.jpg") %>" class="card-img card-img-bg" alt="card-image">
+	<div class="card-img-overlay">
 		<h4 class="card-title"><%= game.title %></h4>
 		<p class="card-text"><%= game.address %></p>
 		<p class="card-text"><%= l game.datetime, format: :long %></p>
