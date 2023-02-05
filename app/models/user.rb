@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :games
   has_many :comments, dependent: :destroy
   has_many :subscriptions
+  has_many :photos, dependent: :destroy
 
   after_commit :link_subscriptions, on: :create
 
