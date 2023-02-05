@@ -12,7 +12,7 @@ body {
 }
 
 .card-img-bg {
-  height: 15vw;
+  height: 12rem;
   object-fit: cover;
   width: 100%;
   opacity: 15%;
