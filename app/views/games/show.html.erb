@@ -32,6 +32,18 @@
 	</div>
 <% end %>
 
+<% if current_user %>
+	<div class="h3 mb-3"><%= t("views.games.show.photos") %></div>
+	<% if @game.photos.any? %>
+		<div class="mb-3">
+			<%= render partial: "photos/photo", collection: @game.photos.except(@new_photo) %>
+		</div>
+	<% end %>
+	<div class="mb-5">
+		<%= render partial: "photos/form", locals: { photo: @new_photo || @game.photos.build } %>
+	</div>
+<% end %>
+
 <div class="h3 mb-3"><%= t("views.games.show.comments") %></div>
 <div class="mb-3">
 	<%= render partial: "comments/form", locals: { comment: @new_comment || @game.comments.build } %>

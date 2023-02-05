@@ -1,0 +1,9 @@
+<%= render "partials/error_messages", model: photo %>
+<%= form_for([@game, photo], data: { turbo: false }, html: { multipart: true }) do |f| %>
+  <div class="mb-3">
+    <%= f.label :photo, class: "form-label mb-0" %>
+    <%= f.file_field :photo, class: "form-control" %>
+  </div>
+
+  <%= f.submit t("views.send"), class: "btn btn-primary" %>
+<% end %>

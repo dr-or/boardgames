@@ -60,6 +60,7 @@ ru:
     delete: "Удалить"
     app_title: "ТВОЯ ИГРА!"
     edit: "Редактировать"
+    send: "Отправить"
     submit: "Подтвердить"
 
     devise:
@@ -87,9 +88,10 @@ ru:
       new:
         schedule_game: "Запланировать игру"
       show:
-        scheduled_game: "планирует сыграть в:"
         comments: "Комментарии:"
         participate: "Участвуют:"
+        photos: "Фотографии"
+        scheduled_game: "планирует сыграть в:"
 
     layouts:
       sign_out: "Выйти"
