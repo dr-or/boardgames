@@ -1,4 +1,7 @@
-<div class="h2"><%= @game.user.name %> <%= t("views.games.show.scheduled_game") %></div>
+<div class="h2">
+	<%= link_to @game.user.name, user_path(@game.user), class: "text-decoration-none" %>
+	<%= t("views.games.show.scheduled_game") %>
+</div>
 <div class="bg-light rounded p-4 mb-3">
 	<div class="h3 mb-4"><%= @game.title %></div>
 	<div class="h5 mb-2 text-secondary"><%= t("activerecord.attributes.game.address") %>:</div>
