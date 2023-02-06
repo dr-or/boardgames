@@ -1,5 +1,5 @@
 <div class="mb-2 d-flex align-items-end">
-  <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url %>
+  <%= link_to image_tag(photo.photo.thumb.url, class: "rounded"), photo.photo.url %>
 
   <% if current_user_can_edit?(photo) %>
     <div class="">
