@@ -27,4 +27,12 @@ module ApplicationHelper
       asset_path("no_avatar.jpeg")
     end
   end
+
+  def user_avatar_thumb(user)
+    if user.avatar.file.present?
+      user.avatar.thumb.url
+    else
+      asset_path("no_avatar.jpeg")
+    end
+  end
 end
