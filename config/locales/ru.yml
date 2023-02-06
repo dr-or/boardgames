@@ -82,6 +82,8 @@ ru:
         forgot_your_password: "Забыли свой пароль?"
 
     games:
+      game_card:
+        game_link: "Подробнее"
       index:
         new_game: "Новая игра"
         unauthenticated: "Войдите или зарегистрируйтесь, чтобы запланировать свою игру."
@@ -96,9 +98,7 @@ ru:
     layouts:
       sign_out: "Выйти"
 
-    partials:
-      game_card:
-        game_link: "Подробнее"
+    shared:
       error_messages:
         form_has: "При заполнении анкеты"
         errors:
