@@ -106,6 +106,9 @@ ru:
           few: "допущены %{count} ошибки:"
           many: "допущены %{count} ошибок:"
 
+    photos:
+      from: "от:"
+
     subscriptions:
       form:
         subscribe: "Подписаться"

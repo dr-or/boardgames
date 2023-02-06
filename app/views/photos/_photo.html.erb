@@ -1,3 +1,16 @@
-<span class="mb-3">
+<div class="mb-2 d-flex align-items-end">
   <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url %>
-</span>
+
+  <% if current_user_can_edit?(photo) %>
+    <div class="">
+      <%= button_to bi_icon("trash"), game_photo_path(photo.game, photo),
+                    method: :delete, class: "btn text-danger p-0", form_class: "d-inline",
+                    data: { turbo_confirm: t("views.deletion_confirm") }, title: t("views.delete") %>
+    </div>
+  <% end %>
+</div>
+<div>
+  <%= photo.class.human_attribute_name(:photo) %>
+  <%= t("views.photos.from") %>
+  <%= link_to photo.user.name, user_path(photo.user) %>
+</div>
