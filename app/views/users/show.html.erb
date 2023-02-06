@@ -12,4 +12,4 @@
 	<p class="h5 text-center"><%= t("views.users.no_games") %></p>
 <% end %>
 
-<%= render partial: "partials/game_grid", locals: {games: @user.games} %>
+<%= render partial: "games/game_grid", locals: {games: @user.games} %>

@@ -1,10 +1,10 @@
 <% games.each_slice(2) do |game1, game2| %>
   <div class="row">
     <div class="col-md-6 mb-3">
-      <%= render partial: 'partials/game_card', locals: {game: game1} %>
+      <%= render partial: "games/game_card", locals: {game: game1} %>
     </div>
     <div class="col-md-6 mb-3">
-      <%= render partial: 'partials/game_card', locals: {game: game2} if game2 %>
+      <%= render partial: "games/game_card", locals: {game: game2} if game2 %>
     </div>
   </div>
 <% end %>

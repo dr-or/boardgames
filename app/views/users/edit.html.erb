@@ -4,7 +4,7 @@
 			<div class="card-header h5"><%= t("views.edit") %></div>
 			
 			<div class="card-body">
-				<%= render partial: "partials/error_messages", locals: { model: @user} %>
+				<%= render partial: "shared/error_messages", locals: { model: @user} %>
 	
 				<%= form_with model: @user, data: { turbo: false },
 											html: { multipart: true } do |form| %>
