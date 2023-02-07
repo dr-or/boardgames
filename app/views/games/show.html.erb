@@ -27,7 +27,7 @@
 	<% end %>
 </div>
 
-<% if @game.subscriptions.any? %>
+<% if @game.subscriptions.except(@new_subscription).any? %>
 	<div class="h3 mb-3"><%= t("views.games.show.participate") %></div>
 	<div class="mb-5 ps-3">
 		<%= render partial: "subscriptions/subscription",
@@ -35,8 +35,10 @@
 	</div>
 <% end %>
 
+<% if @game.photos.any? || current_user %>
+	<div class="h3 mb-3"><%= t("views.games.show.photos") %>:</div>
+<% end %>
 <% if @game.photos.any? %>
-	<div class="h3 mb-3"><%= t("views.games.show.photos") %></div>
 	<div class="mb-3">
 		<%= render partial: "photos/photo_grid", locals: { photos: @game.photos.except(@new_photo) } %>
 	</div>
