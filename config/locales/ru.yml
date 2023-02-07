@@ -64,6 +64,13 @@ ru:
       owner: "Организатор"
     subscription:
       subject: "Новая подписка на игру"
+      title: "Новая подписка"
+      name: "Имя"
+      email: "Email"
+      author: "Автор"
+      game: "Игра"
+      datetime: "Состоится"
+      owner: "Организатор"
 
   views:
     back: "Назад"
