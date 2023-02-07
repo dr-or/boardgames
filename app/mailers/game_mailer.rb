@@ -6,6 +6,13 @@ class GameMailer < ApplicationMailer
 
     mail to: email, subject: "#{I18n.t("game_mailer.comment.subject")} #{game.title}"
   end
+
+  def photo(game, email, photo)
+    @game = game
+    @photo = photo
+
+    mail to: email, subject: "#{I18n.t("game_mailer.photo.subject")} #{game.title}"
+  end
   
   def subscription(game, subscription)
     @game = game
