@@ -1,9 +1,9 @@
 <%= t(".title") %>
 ----
 
-<%= image_tag @photo.photo.url %>
+<%= image_tag attachments[@photo.photo.identifier].url %>
 
-<%= t(".author") %>: <%= @photo.user %>
+<%= t(".author") %>: <%= @photo.user.name %>
 
 --------------------------------
 <%= t(".game") %>: <%= @game.title %>

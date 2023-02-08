@@ -7,6 +7,7 @@ class PhotosController < ApplicationController
     @new_photo.user = current_user
 
     if @new_photo.save
+      notify_subscribers(@game, @new_photo)
       redirect_to game_path(@game), notice: I18n.t("controllers.photos.created")
     else
       flash.now[:alert] = I18n.t("controllers.error")
@@ -37,6 +38,15 @@ class PhotosController < ApplicationController
   end
 
   def photo_params
-    params.fetch(:photo, {}).permit(:photo)
+    params.require(:photo).permit(:photo)
+  end
+
+  def notify_subscribers(game, photo)
+    all_emails = (game.subscriptions.map(&:user_email) + [game.user.email]).uniq
+    all_emails.delete(photo.user.email)
+
+    all_emails.each do |email|
+      GameMailer.photo(game, email, photo).deliver_now
+    end
   end
 end
