@@ -6,6 +6,6 @@
 <%= t(".author") %>: <%= @photo.user.name %>
 
 --------------------------------
-<%= t(".game") %>: <%= @game.title %>
+<%= t(".game") %>: <%= link_to @game.title, @game %>
 <%= t(".datetime") %>: <%= l @game.datetime %>
 <%= t(".owner") %>: <%= @game.user.name %>

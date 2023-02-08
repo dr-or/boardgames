@@ -42,11 +42,12 @@ class PhotosController < ApplicationController
   end
 
   def notify_subscribers(game, photo)
-    all_emails = (game.subscriptions.map(&:user_email) + [game.user.email]).uniq
-    all_emails.delete(photo.user.email)
+    all_emails = (
+      game.subscriptions.map(&:user_email) + [game.user.email] - [photo.user.email]
+    ).uniq
 
     all_emails.each do |email|
-      GameMailer.photo(game, email, photo).deliver_now
+      GameMailer.photo(photo, email).deliver_now
     end
   end
 end

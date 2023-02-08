@@ -5,127 +5,127 @@ ru:
         subscription:
           attributes:
             user:
-              forbidden: "не может подписываться на свои игры."
+              forbidden: не может подписываться на свои игры.
     models:
-      comment: "Комментарий"
-      game: "Игра"
-      photo: "Фото"
-      subscription: "Подписка"
-      user: "Пользователь"
+      comment: Комментарий
+      game: Игра
+      photo: Фото
+      subscription: Подписка
+      user: Пользователь
     attributes:
       comment:
-        body: "Текст"
-        user_name: "Имя"
+        body: Текст
+        user_name: Имя
       game:
-        title: "Название"
-        address: "Адрес"
-        description: "Описание"
-        datetime: "Дата и время"
+        title: Название
+        address: Адрес
+        description: Описание
+        datetime: Дата и время
       photo:
-        photo: "Фото"
+        photo: Фото
       subscription:
-        user: "Пользователь"
-        user_email: "Email"
-        user_name: "Имя"
+        user: Пользователь
+        user_email: Email
+        user_name: Имя
       user:
-        avatar: "Аватар"
-        email: "Email"
-        name: "Имя"
-        password: "Пароль"
-        password_confirmation: "Подтверждение пароля"
+        avatar: Аватар
+        email: Email
+        name: Имя
+        password: Пароль
+        password_confirmation: Подтверждение пароля
 
   controllers:
-    error: "Упс! Что-то пошло не так."
+    error: Упс! Что-то пошло не так.
     comments:
-      created: "Комментарий отправлен."
-      destroyed: "Комментарий удален."
+      created: Комментарий отправлен.
+      destroyed: Комментарий удален.
     games:
-      created: "Игра запланирована."
-      updated: "Информация об игре обновлена."
-      destroyed: "Игра отменена."
+      created: Игра запланирована.
+      updated: Информация об игре обновлена.
+      destroyed: Игра отменена.
     photos:
-      created: "Фотография добавлена."
-      destroyed: "Фотография удалена."
+      created: Фотография добавлена.
+      destroyed: Фотография удалена.
     subscriptions:
-      created: "Подписка создана."
-      destroyed: "Подписка удалена."
+      created: Подписка создана.
+      destroyed: Подписка удалена.
     users:
       updated:
-        success: "Информация о профиле обновлена."
-        failure: "Упс, что-то не так. Проверьте введенные данные."
+        success: Информация о профиле обновлена.
+        failure: Упс, что-то не так. Проверьте введенные данные.
 
   game_mailer:
     comment:
-      subject: "Новый комментарий у игры"
-      title: "Новый комментарий"
-      author: "Автор"
-      game: "Игра"
-      datetime: "Состоится"
-      owner: "Организатор"
+      subject: Новый комментарий у игры %{title}
+      title: Новый комментарий
+      author: Автор
+      game: Игра
+      datetime: Дата и время
+      owner: Организатор
     photo:
-      subject: "Добавлена новая фотография на странице игры"
-      title: "Новая фотография"
-      author: "Автор"
-      game: "Игра"
-      datetime: "Состоится"
-      owner: "Организатор"
+      subject: Добавлена новая фотография на странице игры %{title}
+      title: Новая фотография
+      author: Автор
+      game: Игра
+      datetime: Дата и время
+      owner: Организатор
     subscription:
-      subject: "Новая подписка на игру"
-      title: "Новая подписка"
-      name: "Имя"
-      email: "Email"
-      author: "Автор"
-      game: "Игра"
-      datetime: "Состоится"
-      owner: "Организатор"
+      subject: Новая подписка на игру %{title}
+      title: Новая подписка
+      name: Имя
+      email: Email
+      author: Автор
+      game: Игра
+      datetime: Дата и время
+      owner: Организатор
 
   views:
-    back: "Назад"
-    deletion_confirm: "Вы уверены?"
-    delete: "Удалить"
-    app_title: "ТВОЯ ИГРА!"
-    edit: "Редактировать"
-    send: "Отправить"
-    submit: "Подтвердить"
+    back: Назад
+    deletion_confirm: Вы уверены?
+    delete: Удалить
+    app_title: ТВОЯ ИГРА!
+    edit: Редактировать
+    send: Отправить
+    submit: Подтвердить
 
     devise:
       sessions:
-        title: "Вход"
-        submit: "Войти"
+        title: Вход
+        submit: Войти
       registrations:
         edit:
-          change_password: "Сменить пароль"
-          unconfirmed_email: "В настоящее время ожидает подтверждения для"
-          label_password: "оставьте пустым, если не хотите его менять"
-          password_length: "символов минимум"
-          delete_account: "Удалить мой аккаунт"
-          unhappy: "Не довольны?"
+          change_password: Сменить пароль
+          unconfirmed_email: В настоящее время ожидает подтверждения для
+          label_password: оставьте пустым, если не хотите его менять
+          password_length: символов минимум
+          delete_account: Удалить мой аккаунт
+          unhappy: Не довольны?
         new:
-          registration: "Регистрация"
-          submit: "Зарегистрироваться"
+          registration: Регистрация
+          submit: Зарегистрироваться
       new:
-        forgot_your_password: "Забыли свой пароль?"
+        forgot_your_password: Забыли свой пароль?
 
     games:
       game_card:
-        game_link: "Подробнее"
+        game_link: Подробнее
       index:
-        new_game: "Новая игра"
-        unauthenticated: "Войдите или зарегистрируйтесь, чтобы запланировать свою игру."
+        new_game: Новая игра
+        unauthenticated: Войдите или зарегистрируйтесь, чтобы запланировать свою игру.
       new:
-        schedule_game: "Запланировать игру"
+        schedule_game: Запланировать игру
       show:
         comments: "Комментарии:"
         participate: "Участвуют:"
-        photos: "Фотографии"
+        photos: Фотографии
         scheduled_game: "планирует сыграть в:"
 
     layouts:
-      sign_out: "Выйти"
+      sign_out: Выйти
 
     shared:
       error_messages:
-        form_has: "При заполнении анкеты"
+        form_has: При заполнении анкеты
         errors:
           one: "допущена одна ошибка:"
           few: "допущены %{count} ошибки:"
@@ -136,8 +136,8 @@ ru:
 
     subscriptions:
       form:
-        subscribe: "Подписаться"
+        subscribe: Подписаться
 
     users:
       user_games: "Игры, запланированные этим пользователем:"
-      no_games: "Этот пользователь ещё не запланировал ни одну игру."
+      no_games: Этот пользователь ещё не запланировал ни одну игру.

@@ -7,7 +7,7 @@ class SubscriptionsController < ApplicationController
     @new_subscription.user = current_user
 
     if @new_subscription.save
-      GameMailer.subscription(@game, @new_subscription).deliver_now
+      GameMailer.subscription(@new_subscription).deliver_now
 
       redirect_to game_path(@game), notice: I18n.t("controllers.subscriptions.created")
     else

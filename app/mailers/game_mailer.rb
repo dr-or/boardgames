@@ -1,26 +1,26 @@
 class GameMailer < ApplicationMailer
 
-  def comment(comment, game, email)
+  def comment(comment, email)
     @comment = comment
-    @game = game
+    @game = comment.game
 
-    mail to: email, subject: "#{I18n.t("game_mailer.comment.subject")} #{game.title}"
+    mail to: email, subject: default_i18n_subject(title: @game.title)
   end
 
-  def photo(game, email, photo)
-    @game = game
+  def photo(photo, email)
+    @game = photo.game
     @photo = photo
 
     attachments.inline[@photo.photo.identifier] = File.read(Rails.root.join("public#{@photo.photo}"))
 
-    mail to: email, subject: "#{I18n.t("game_mailer.photo.subject")} #{game.title}"
+    mail to: email, subject: default_i18n_subject(title: @game.title)
   end
   
-  def subscription(game, subscription)
-    @game = game
+  def subscription(subscription)
+    @game = subscription.game
     @email = subscription.user_email
     @name = subscription.user_name
 
-    mail to: game.user.email, subject: "#{I18n.t("game_mailer.subscription.subject")} #{game.title}"
+    mail to: @game.user.email, subject: default_i18n_subject(title: @game.title)
   end
 end

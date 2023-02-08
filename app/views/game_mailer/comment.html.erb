@@ -5,7 +5,7 @@
 <hr/>
 
 <%= t(".game") %>
-<h3><%= @game.title %></h3>
+<h3><%= link_to @game.title, @game %></h3>
 
 <%= t(".datetime") %>
 <h4><%= l @game.datetime %></h4>
