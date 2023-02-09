@@ -1,8 +1,8 @@
 <% if model.errors.any? %>
 	<div class="alert alert-danger">
 		<p class="h6">
-			<%= t("views.partials.error_messages.form_has") %>
-			<%= I18n.t("views.shared.error_messages.errors",
+			<%= t("views.shared.error_messages.form_has") %>
+			<%= t("views.shared.error_messages.errors",
 								 count: model.errors.count) %>
 		</p>
 		<ul>
