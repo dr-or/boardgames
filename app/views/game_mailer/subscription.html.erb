@@ -1,11 +1,11 @@
 <h1><%= t(".title") %></h1>
 <p><%= t(".name") %>: <strong><%= @name %></strong></p>
-<p><%= t(".email") %>: <strong><%= link_to @email, "mailto:#{@email}" %></strong></p>
+<p><%= t(".email") %>: <strong><%= mail_to @email %></strong></p>
 <hr/>
 
 <%= t(".game") %>
 
-<h3><%= @game.title %></h3>
+<h3><%= link_to @game.title, @game %></h3>
 
 <%= t(".datetime") %>
 <h4><%= l @game.datetime %></h4>
