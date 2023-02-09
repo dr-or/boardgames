@@ -42,7 +42,9 @@ class CommentsController < ApplicationController
   end
 
   def notify_subscribers(game, comment)
-    all_emails = (game.subscriptions.map(&:user_email) + [game.user.email]).uniq
+    all_emails = (
+      game.subscriptions.map(&:user_email) + [game.user.email] - [comment.user&.email]
+    ).uniq
 
     all_emails.each do |email|
       GameMailer.comment(comment, email).deliver_now
