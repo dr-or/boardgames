@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_05_091302) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_13_105052) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.string "user_name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_05_091302) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
+    t.string "pincode"
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 
