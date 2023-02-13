@@ -12,6 +12,8 @@
           <%= f.label :user_email, class: "form-label mb-0" %>
           <%= f.text_field :user_email, class: "form-control" %>
         </div>
+
+        <div class="mb-3"><%= recaptcha_tags %></div>
       <% end %>
 
       <%= f.submit t("views.subscriptions.form.subscribe"), class: "btn btn-primary" %>

@@ -6,7 +6,7 @@ class SubscriptionsController < ApplicationController
     @new_subscription = @game.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
 
-    if @new_subscription.save
+    if check_recaptcha(@new_subscription) && @new_subscription.save
       GameMailer.subscription(@new_subscription).deliver_now
 
       redirect_to game_path(@game), notice: I18n.t("controllers.subscriptions.created")
@@ -40,5 +40,9 @@ class SubscriptionsController < ApplicationController
 
   def subscription_params
     params.fetch(:subscription, {}).permit(:user_name, :user_email)
+  end
+
+  def check_recaptcha(model)
+    current_user.present? || verify_recaptcha(model: model)
   end
 end
