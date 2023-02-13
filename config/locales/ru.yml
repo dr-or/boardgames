@@ -21,6 +21,7 @@ ru:
         address: Адрес
         description: Описание
         datetime: Дата и время
+        pincode: Пин-код
       photo:
         photo: Фото
       subscription:
@@ -43,6 +44,7 @@ ru:
       created: Игра запланирована.
       updated: Информация об игре обновлена.
       destroyed: Игра отменена.
+      wrong_pincode: Неверный пин-код.
     photos:
       created: Фотография добавлена.
       destroyed: Фотография удалена.
@@ -114,6 +116,8 @@ ru:
         unauthenticated: Войдите или зарегистрируйтесь, чтобы запланировать свою игру.
       new:
         schedule_game: Запланировать игру
+      password_form:
+        pincode_access: Доступ к игре только по пин-коду
       show:
         comments: "Комментарии:"
         participate: "Участвуют:"
