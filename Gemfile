@@ -22,8 +22,11 @@ gem 'turbo-rails'
 
 group :development, :test do
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
   gem 'sqlite3', '~> 1.4'
 end
+
+gem "recaptcha"
 
 group :development do
   gem "letter_opener"

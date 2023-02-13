@@ -36,6 +36,7 @@ public/uploads/
 /config/master.key
 
 .idea
+.env
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
