@@ -41,7 +41,7 @@
 <% end %>
 <% if @game.photos.any? %>
 	<div class="mb-3">
-		<%= render partial: "photos/photo_grid", locals: { photos: @game.photos.except(@new_photo) } %>
+		<%= render partial: "photos/photo", collection: @game.photos.except(@new_photo) %>
 	</div>
 <% end %>
 <% if current_user %>
