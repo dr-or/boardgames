@@ -1,0 +1,51 @@
+.lb-cancel {
+  background: url('loading.gif') no-repeat;
+}
+
+.lb-nav a.lb-prev {
+  background: url('prev.png') left 48% no-repeat;
+}
+
+.lb-nav a.lb-next {
+  background: url('next.png') right 48% no-repeat;
+}
+
+.lb-data .lb-close {
+  width: 16px;
+  height: 16px;
+  background: url('close.png') top right no-repeat;
+}
+
+.lightbox {
+  display: flex; flex-direction: column;
+}
+
+.lb-outerContainer {
+  order: 2;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.lb-dataContainer {
+  order: 1;
+  padding: 10px 0;
+  background-color: white;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom: 1px solid #a6a6a6;
+}
+
+.lb-data {
+  color: #4a4a4a;
+  padding: 0 10px;
+}
+
+.lb-data .lb-number {
+  display: none !important;
+}
+
+.lightbox .lb-image {
+  border: 10px solid white;
+}
