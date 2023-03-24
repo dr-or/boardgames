@@ -7,7 +7,6 @@ class User < ApplicationRecord
   after_commit :link_subscriptions, on: :create
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
-  mount_uploader :avatar, AvatarUploader
 
   validates :name, presence: true, length: { maximum: 40 }
 
