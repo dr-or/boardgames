@@ -18,7 +18,7 @@
 					</div>
 					<div class="mb-3">
 						<%= form.label :avatar, class: "form-label mb-0 fw-bold" %>
-						<%= content_tag(:p, image_tag(@user.avatar.thumb.url)) if @user.avatar? %>
+						<%= content_tag(:p, image_tag(@user.avatar)) if @user.avatar? %>
 						<%= form.file_field :avatar %>
 					</div>
 					<div><%= form.submit t("views.submit"), class: "btn btn-primary" %></div>

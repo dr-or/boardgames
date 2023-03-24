@@ -21,8 +21,8 @@ module ApplicationHelper
   end
 
   def user_avatar(user)
-    if user.avatar?
-      user.avatar.url
+    if user.avatar.attached?
+      user.avatar
     else
       asset_path("no_avatar.jpeg")
     end
