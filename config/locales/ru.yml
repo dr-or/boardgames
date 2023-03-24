@@ -6,6 +6,11 @@ ru:
           attributes:
             user:
               forbidden: не может подписываться на свои игры.
+        user:
+          attributes:
+            avatar:
+              wrong_type: можно добавить только в формате png, jpg или jpeg.
+              too_big: слишком много весит, размер ограничен до 1МВ.
     models:
       comment: Комментарий
       game: Игра

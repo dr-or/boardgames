@@ -1,6 +1,6 @@
 <div class="rounded p-4 text-center mb-3">
 	<p class="h1 mb-1"><%= @user.name %></p>
-	<p class="mb-1 rounded-circle"><%= image_tag user_avatar(@user), class: 'rounded-circle' %></p>
+	<p class="mb-1"><%= image_tag user_avatar(@user), class: 'rounded-circle' %></p>
 	<p class="mb-3"><%= @user.email %></p>
 	<% if @user == current_user %>
 		<%= link_to t("views.edit"), edit_user_path(@user), class: "btn btn-warning" %>

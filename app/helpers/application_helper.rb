@@ -22,7 +22,7 @@ module ApplicationHelper
 
   def user_avatar(user)
     if user.avatar.attached?
-      user.avatar
+      user.avatar.variant(:small)
     else
       asset_path("no_avatar.jpeg")
     end

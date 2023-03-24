@@ -12,6 +12,8 @@ gem 'rails-i18n'
 gem "cssbundling-rails", "~> 1.1"
 gem "jsbundling-rails", "~> 1.1"
 
+gem "image_processing", ">= 1.2"
+
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.4'
 gem 'sprockets-rails'
