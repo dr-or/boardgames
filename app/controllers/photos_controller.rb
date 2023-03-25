@@ -38,7 +38,7 @@ class PhotosController < ApplicationController
   end
 
   def photo_params
-    params.require(:photo).permit(:photo)
+    params.fetch(:photo, {}).permit(:photo)
   end
 
   def notify_subscribers(game, photo)

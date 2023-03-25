@@ -1,6 +1,6 @@
 <div class="d-inline">
   <% image_title = "#{ render partial: "photos/photo_title", locals: { photo: photo } }" %>
-  <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url, data: {
+  <%= link_to image_tag(photo.photo.variant(:thumb)), photo.photo, data: {
     lightbox: "photos", title: image_title
   } %>
 </div>

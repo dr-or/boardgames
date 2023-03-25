@@ -14,7 +14,7 @@ module ApplicationHelper
     photos = game.photos.persisted
 
     if photos.any?
-      photos.sample.photo.url
+      url_for(photos.sample.photo)
     else
       asset_path("game.jpg")
     end
@@ -29,8 +29,8 @@ module ApplicationHelper
   end
 
   def user_avatar_thumb(user)
-    if user.avatar.file.present?
-      user.avatar.thumb.url
+    if user.avatar.attached?
+      user.avatar.variant(:thumb)
     else
       asset_path("no_avatar.jpeg")
     end

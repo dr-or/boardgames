@@ -6,11 +6,6 @@ ru:
           attributes:
             user:
               forbidden: не может подписываться на свои игры.
-        user:
-          attributes:
-            avatar:
-              wrong_type: можно добавить только в формате png, jpg или jpeg.
-              too_big: слишком много весит, размер ограничен до 1МВ.
     models:
       comment: Комментарий
       game: Игра
@@ -28,7 +23,7 @@ ru:
         datetime: Дата и время
         pincode: Пин-код
       photo:
-        photo: Фото
+        photo: Фотография
       subscription:
         user: Пользователь
         user_email: Email
@@ -60,6 +55,12 @@ ru:
       updated:
         success: Информация о профиле обновлена.
         failure: Упс, что-то не так. Проверьте введенные данные.
+
+  errors:
+    messages:
+      blank: не прикреплена.
+      file_size_out_of_range: превышает установленный размер файла.
+      content_type_invalid: не соответствует разрешенному типу файла.
 
   game_mailer:
     comment:
