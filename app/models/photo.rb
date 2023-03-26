@@ -6,6 +6,7 @@ class Photo < ApplicationRecord
 
   has_one_attached :photo do |attachable|
     attachable.variant :thumb, resize_to_fit: [100, 100]
+    attachable.variant :big, resize_to_limit: [800, 800]
   end
 
   validates :photo,

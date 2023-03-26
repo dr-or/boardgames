@@ -11,8 +11,6 @@ class GameMailer < ApplicationMailer
     @game = photo.game
     @photo = photo
 
-    attachments.inline[@photo.photo.identifier] = File.read(Rails.root.join("public#{@photo.photo}"))
-
     mail to: email, subject: default_i18n_subject(title: @game.title)
   end
   

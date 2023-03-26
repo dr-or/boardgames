@@ -1,7 +1,7 @@
 <%= t(".title") %>
 ----
 
-<%= image_tag attachments[@photo.photo.identifier].url %>
+<%= url_for(@photo.photo.variant(:big).processed) %>
 
 <%= t(".author") %>: <%= @photo.user.name %>
 

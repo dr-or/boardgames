@@ -1,5 +1,5 @@
 <h1><%= t(".title") %></h1>
-<p><%= image_tag attachments[@photo.photo.identifier].url %></p>
+<p><%= url_for(image_tag @photo.photo.variant(:big).processed) %></p>
 <p><%= t(".author") %>: <strong><%= @photo.user.name %></strong></p>
 
 <hr/>
