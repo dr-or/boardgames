@@ -34,5 +34,6 @@ group :development do
 end
 
 group :production do
+  gem 'gem aws-sdk-s3'
   gem 'pg'
 end
