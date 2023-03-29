@@ -14,6 +14,7 @@ gem "jsbundling-rails", "~> 1.1"
 
 gem "image_processing", ">= 1.2"
 gem 'active_storage_validations'
+gem 'aws-sdk-s3'
 
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.4'
@@ -34,6 +35,5 @@ group :development do
 end
 
 group :production do
-  gem 'gem aws-sdk-s3'
   gem 'pg'
 end
