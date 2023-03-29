@@ -58,7 +58,7 @@ ru:
 
   errors:
     messages:
-      blank: не прикреплена.
+      blank: не может отсутствовать.
       file_size_out_of_range: превышает установленный размер файла.
       content_type_invalid: не соответствует разрешенному типу файла.
 

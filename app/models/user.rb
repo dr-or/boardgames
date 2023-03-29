@@ -14,7 +14,7 @@ class User < ApplicationRecord
   end
 
   validates :name, presence: true, length: { maximum: 40 }
-  validates :avatar, attached: true, content_type: ['image/png', 'image/jpeg', 'image/jpg'],
+  validates :avatar, content_type: ['image/png', 'image/jpeg', 'image/jpg'],
             size: { less_than: 1.megabyte }
   private
 
