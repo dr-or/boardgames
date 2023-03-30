@@ -47,7 +47,7 @@ class CommentsController < ApplicationController
     ).uniq
 
     all_emails.each do |email|
-      GameMailer.comment(comment, email).deliver_now
+      GameMailer.comment(comment, email).deliver_later
     end
   end
 end

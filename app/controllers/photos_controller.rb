@@ -47,7 +47,7 @@ class PhotosController < ApplicationController
     ).uniq
 
     all_emails.each do |email|
-      GameMailer.photo(photo, email).deliver_now
+      GameMailer.photo(photo, email).deliver_later
     end
   end
 end

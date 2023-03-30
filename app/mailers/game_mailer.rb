@@ -1,5 +1,4 @@
 class GameMailer < ApplicationMailer
-
   def comment(comment, email)
     @comment = comment
     @game = comment.game
