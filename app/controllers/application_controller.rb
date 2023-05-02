@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   helper_method :current_user_can_edit?
 
@@ -19,5 +20,10 @@ class ApplicationController < ActionController::Base
     user_signed_in? &&
       (model.user == current_user ||
         (model.try(:game).present? && model.game.user == current_user))
+  end
+
+  def user_not_authorized
+    flash[:alert] = "You are not authorized to perform this action."
+    redirect_back(fallback_location: root_path)
   end
 end
