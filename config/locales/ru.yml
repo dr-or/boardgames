@@ -37,6 +37,7 @@ ru:
 
   controllers:
     error: Упс! Что-то пошло не так.
+    prohibition: Вам сюда нельзя.
     comments:
       created: Комментарий отправлен.
       destroyed: Комментарий удален.
