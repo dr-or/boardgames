@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
+  after_action :verify_authorized, only: %i[edit show update destroy]
 
   def index
     @games = Game.all
