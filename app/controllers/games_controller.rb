@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
+  before_action :set_game, only: %i[edit show update destroy]
   after_action :verify_authorized, only: %i[edit show update destroy]
 
   def index
@@ -21,18 +22,18 @@ class GamesController < ApplicationController
   end
 
   def edit
-    @game = authorize Game.find(params[:id])
+    authorize @game
   end
 
   def show
-    @game = authorize Game.find(params[:id])
+    authorize @game
     password_guard!(@game)
     @new_comment = @game.comments.build(params[:comment])
     @new_subscription = @game.subscriptions.build(params[:subscription])
   end
 
   def update
-    @game = authorize Game.find(params[:id])
+    authorize @game
     if @game.update(game_params)
       redirect_to game_path(@game), notice: I18n.t('controllers.games.updated')
     else
@@ -41,7 +42,7 @@ class GamesController < ApplicationController
   end
 
   def destroy
-    @game = authorize Game.find(params[:id])
+    authorize @game
     @game.destroy
     redirect_to root_path, notice: I18n.t('controllers.games.destroyed')
   end
@@ -64,5 +65,9 @@ class GamesController < ApplicationController
       flash.now[:alert] = I18n.t("controllers.games.wrong_pincode") if params[:pincode].present?
       render "password_form"
     end
+  end
+
+  def set_game
+    @game = Game.find(params[:id])
   end
 end
