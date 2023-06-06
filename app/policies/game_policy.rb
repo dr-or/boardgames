@@ -20,13 +20,13 @@ class GamePolicy < ApplicationPolicy
   end
 
   def show?
-    valid_password?(@record)
+    valid_password?(record)
   end
 
   private
 
   def host?
-    user.present? && game.try(:user) == user
+    user.present? && record.try(:user) == user
   end
 
   def valid_password?(game_context)
