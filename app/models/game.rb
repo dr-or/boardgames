@@ -12,4 +12,8 @@ class Game < ApplicationRecord
   def visitors
     (subscribers + [user]).uniq
   end
+
+  def valid_pincode?(code)
+    pincode == code
+  end
 end

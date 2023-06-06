@@ -1,13 +1,14 @@
 class GamePolicy < ApplicationPolicy
-  attr_reader :user, :game
+  def new?
+    user.present?
+  end
 
-  def initialize(user, game)
-    @user = user
-    @game = game
+  def create?
+    new?
   end
 
   def destroy?
-    user.games.include?(@game)
+    host?
   end
 
   def update?
@@ -15,10 +16,23 @@ class GamePolicy < ApplicationPolicy
   end
 
   def edit?
-    super
+    destroy?
   end
 
   def show?
-    true
+    valid_password?(@record)
+  end
+
+  private
+
+  def host?
+    user.present? && game.try(:user) == user
+  end
+
+  def valid_password?(game_context)
+    return true if game_context.game.pincode.blank?
+    return true if host?
+
+    game_context.pincode.present? && game_context.game.valid_pincode?(game_context.pincode)
   end
 end
