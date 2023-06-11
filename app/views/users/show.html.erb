@@ -1,15 +1,15 @@
 <div class="rounded p-4 text-center mb-3">
-	<p class="h1 mb-1"><%= @user.name %></p>
-	<p class="mb-1"><%= image_tag user_avatar(@user), class: 'rounded-circle' %></p>
-	<p class="mb-3"><%= @user.email %></p>
-	<% if @user == current_user %>
-		<%= link_to t("views.edit"), edit_user_path(@user), class: "btn btn-warning" %>
-	<% end %>
+  <p class="h1 mb-1"><%= @user.name %></p>
+  <p class="mb-1"><%= image_tag user_avatar(@user), class: 'rounded-circle' %></p>
+  <p class="mb-3"><%= @user.email %></p>
+  <% if @user == current_user %>
+    <%= link_to t("views.edit"), edit_user_path(@user), class: "btn btn-warning" %>
+  <% end %>
 </div>
 <% if @user.games.any? %>
-	<p class="h2 text-center mt-3"><%= t("views.users.user_games") %></p>
+  <p class="h2 text-center mt-3"><%= t("views.users.user_games") %></p>
 <% else %>
-	<p class="h5 text-center"><%= t("views.users.no_games") %></p>
+  <p class="h5 text-center"><%= t("views.users.no_games") %></p>
 <% end %>
 
 <%= render partial: "games/game_grid", locals: {games: @user.games} %>

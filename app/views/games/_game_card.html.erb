@@ -1,15 +1,15 @@
 <div class="card">
-	<img src="<%= game_photo(game) %>" class="card-img card-img-bg" alt="card-image">
-	<div class="card-img-overlay">
-		<h4 class="card-title truncate"><%= game.title %></h4>
-		<p class="card-text truncate"><%= game.address %></p>
-		<p class="card-text"><%= l game.datetime, format: :long %></p>
-		<div class="mb-2">
-			<% game.visitors.each do |visitor| %>
-				<%= image_tag user_avatar_thumb(visitor), class: "img-icon rounded-circle", title: visitor.name %>
-			<% end %>
-		</div>
-		<%= link_to t('views.games.game_card.game_link'), game_path(game),
-								class: "text-decoration-none", data: { turbo: false } %>
-	</div>
+  <img src="<%= game_photo(game) %>" class="card-img card-img-bg" alt="card-image">
+  <div class="card-img-overlay">
+    <h4 class="card-title truncate"><%= game.title %></h4>
+    <p class="card-text truncate"><%= game.address %></p>
+    <p class="card-text"><%= l game.datetime, format: :long %></p>
+    <div class="mb-2">
+      <% game.visitors.each do |visitor| %>
+        <%= image_tag user_avatar_thumb(visitor), class: "img-icon rounded-circle", title: visitor.name %>
+      <% end %>
+    </div>
+    <%= link_to t('views.games.game_card.game_link'), game_path(game),
+                class: "text-decoration-none", data: { turbo: false } %>
+  </div>
 </div>
