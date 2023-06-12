@@ -7,9 +7,9 @@ RSpec.describe GamePolicy do
   let(:game) { create(:game, user: host) }
   let(:game_with_pincode) { create(:game, user: host, pincode: "1") }
 
-  let(:game_context) { GameContext.new(game: game) }
-  let(:game_context_with_correct_pincode) { GameContext.new(game: game_with_pincode, pincode: "1") }
-  let(:game_context_with_incorrect_pincode) { GameContext.new(game: game_with_pincode, pincode: "2") }
+  let(:game_context) { GameContext.new(game, nil) }
+  let(:game_context_with_correct_pincode) { GameContext.new(game_with_pincode, "1") }
+  let(:game_context_with_incorrect_pincode) { GameContext.new(game_with_pincode, "2") }
 
   subject { GamePolicy }
 
