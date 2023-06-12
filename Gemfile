@@ -3,22 +3,20 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.4'
 
-gem 'bootsnap', require: false
-
-gem 'devise'
-gem 'devise-i18n'
-gem 'rails-i18n'
-
-gem "cssbundling-rails", "~> 1.1"
-gem "jsbundling-rails", "~> 1.1"
-
-gem "image_processing", ">= 1.2"
 gem 'active_storage_validations'
 gem 'aws-sdk-s3'
-
+gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
+gem 'bootsnap', require: false
+gem 'cssbundling-rails', '~> 1.1'
+gem 'devise'
+gem 'devise-i18n'
+gem 'ed25519', '>= 1.2', '< 2.0'
+gem 'image_processing', '>= 1.2'
+gem 'jsbundling-rails', '~> 1.1'
 gem 'puma', '~> 5.0'
-gem "pundit", "~> 2.3"
+gem 'pundit', '~> 2.3'
 gem 'rails', '~> 7.0.4'
+gem 'rails-i18n'
 gem 'sprockets-rails'
 gem 'turbo-rails'
 
@@ -30,10 +28,16 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 5.0'
 end
 
-gem "recaptcha"
+gem 'recaptcha'
 
 group :development do
-  gem "letter_opener"
+  gem 'capistrano', '~> 3.8'
+  gem 'capistrano-rails', '~> 1.6'
+  gem 'capistrano-rbenv', '~> 2.2'
+  gem 'capistrano-passenger'
+  gem 'capistrano-bundler', '~> 2.0'
+
+  gem 'letter_opener'
   gem 'web-console'
 end
 
