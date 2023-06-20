@@ -25,7 +25,7 @@ class Subscription < ApplicationRecord
   private
 
   def organizer_cant_be_subscriber
-    errors.add(:user, :forbidden) if user == game.user
+    errors.add(:user, :forbidden) if user == game&.user
   end
 
   def registered_email

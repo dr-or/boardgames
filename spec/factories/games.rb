@@ -4,6 +4,6 @@ FactoryBot.define do
     address { "Game-city, Game str, 1" }
     datetime { 1.hour.ago }
 
-    association :user
+    user
   end
 end
