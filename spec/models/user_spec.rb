@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:user) { create(:user) }
 
-  describe 'avatar variants' do
+  describe 'attached avatar' do
     it 'has a small variant' do
       expect(user.avatar.variant(:small)).to be_truthy
     end
