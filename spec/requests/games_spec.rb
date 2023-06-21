@@ -94,7 +94,7 @@ RSpec.describe 'Games', type: :request do
     end
 
     context 'with valid params' do
-      before { put "/games/#{game.id}", params: { game: { title: 'Poker' } } }
+      before { put "/games/#{game.id}", params: { game: { title: 'Poker', pincode: '000' } } }
 
       it 'redirects to the game page' do
         expect(response).to redirect_to(game_path(game))
@@ -106,6 +106,14 @@ RSpec.describe 'Games', type: :request do
 
       it 'changes the attribute' do
         expect(game.reload.title).to eq 'Poker'
+      end
+
+      it 'sets the pincode' do
+        expect(game.reload.pincode).to eq '000'
+      end
+
+      it 'does not render the pincode form for a game host' do
+        expect(response.body).not_to include(I18n.t('views.games.password_form.pincode_access'))
       end
     end
   end

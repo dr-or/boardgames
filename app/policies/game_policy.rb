@@ -31,7 +31,7 @@ class GamePolicy < ApplicationPolicy
 
   def valid_password?(game_context)
     return true if game_context.game.pincode.blank?
-    return true if host?
+    return true if user.present? && record.game.user == user
 
     game_context.pincode.present? && game_context.game.valid_pincode?(game_context.pincode)
   end
