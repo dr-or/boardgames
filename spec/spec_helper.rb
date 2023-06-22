@@ -12,7 +12,7 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 require 'active_storage_validations/matchers'
-require "pundit/rspec"
+require 'pundit/rspec'
 
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|

@@ -8,20 +8,20 @@ class PhotosController < ApplicationController
 
     if @new_photo.save
       notify_subscribers(@game, @new_photo)
-      redirect_to game_path(@game), notice: I18n.t("controllers.photos.created")
+      redirect_to game_path(@game), notice: I18n.t('controllers.photos.created')
     else
-      flash.now[:alert] = I18n.t("controllers.error")
-      render "games/show"
+      flash.now[:alert] = I18n.t('controllers.error')
+      render 'games/show'
     end
   end
 
   def destroy
-    message = {notice: I18n.t("controllers.photos.destroyed")}
-    
+    message = { notice: I18n.t('controllers.photos.destroyed') }
+
     if current_user_can_edit?(@photo)
       @photo.destroy
     else
-      message = {alert: I18n.t("controllers.error")}
+      message = { alert: I18n.t('controllers.error') }
     end
 
     redirect_to game_path(@game), message

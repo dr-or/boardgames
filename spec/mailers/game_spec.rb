@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe GameMailer, type: :mailer do
   describe '#subscription' do
     let(:game) { create(:game) }
-    let(:subscription) { create(:subscription, :with_present_user, game: game) }
+    let(:subscription) { create(:subscription, :with_present_user, game:) }
     let(:mail) { GameMailer.subscription(subscription) }
 
     it 'renders the subject' do

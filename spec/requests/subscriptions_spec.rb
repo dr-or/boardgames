@@ -5,7 +5,7 @@ RSpec.describe 'Subscriptions', type: :request do
 
   describe '#create' do
     context 'when user is anonymous' do
-      let(:subscription) { build(:subscription, :without_present_user, game: game) }
+      let(:subscription) { build(:subscription, :without_present_user, game:) }
 
       context 'with invalid params' do
         let(:invalid_params) { { subscription: { user_name: '' } } }
@@ -42,7 +42,7 @@ RSpec.describe 'Subscriptions', type: :request do
     context 'when user is signed in' do
       let(:user) { create(:user) }
       before { sign_in user }
-      let(:subscription) { build(:subscription, :with_present_user, game: game, user: user) }
+      let(:subscription) { build(:subscription, :with_present_user, game:, user:) }
 
       it 'redirects to the game page' do
         post game_subscriptions_path(game)
@@ -58,7 +58,7 @@ RSpec.describe 'Subscriptions', type: :request do
 
   describe '#destroy' do
     let(:user) { create(:user) }
-    let(:subscription) { create(:subscription, :with_present_user, game: game, user: user) }
+    let(:subscription) { create(:subscription, :with_present_user, game:, user:) }
 
     context 'when user is anonymous' do
       before { delete game_subscription_path(subscription.game, subscription) }

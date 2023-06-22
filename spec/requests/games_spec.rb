@@ -79,7 +79,7 @@ RSpec.describe 'Games', type: :request do
 
   describe '#update' do
     before { sign_in user }
-    let(:game) { create(:game, user: user) }
+    let(:game) { create(:game, user:) }
 
     context 'with invalid params' do
       before { put "/games/#{game.id}", params: { game: { title: '' } } }
@@ -120,7 +120,7 @@ RSpec.describe 'Games', type: :request do
 
   describe '#destroy' do
     before { sign_in user }
-    let(:game) { create(:game, user: user) }
+    let(:game) { create(:game, user:) }
     before { delete "/games/#{game.id}" }
 
     it 'deletes the game' do

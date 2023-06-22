@@ -28,7 +28,7 @@ RSpec.describe Photo, type: :model do
       expect(unsaved_photo.persisted?).to be false
     end
   end
-  
+
   describe 'validations' do
     it { is_expected.to have_one_attached(:photo) }
     it { is_expected.to validate_attached_of(:photo) }

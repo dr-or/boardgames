@@ -5,8 +5,8 @@ module ApplicationHelper
 
   def flash_class(key)
     case key
-    when "notice" then "success"
-    when "alert" then "danger"
+    when 'notice' then 'success'
+    when 'alert' then 'danger'
     end
   end
 
@@ -16,7 +16,7 @@ module ApplicationHelper
     if photos.any?
       url_for(photos.sample.photo)
     else
-      asset_path("game.jpg")
+      asset_path('game.jpg')
     end
   end
 
@@ -24,7 +24,7 @@ module ApplicationHelper
     if user.avatar.attached?
       user.avatar.variant(:small)
     else
-      asset_path("no_avatar.jpeg")
+      asset_path('no_avatar.jpeg')
     end
   end
 
@@ -32,7 +32,7 @@ module ApplicationHelper
     if user.avatar.attached?
       user.avatar.variant(:thumb)
     else
-      asset_path("no_avatar.jpeg")
+      asset_path('no_avatar.jpeg')
     end
   end
 end

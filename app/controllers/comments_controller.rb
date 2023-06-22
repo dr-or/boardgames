@@ -8,20 +8,20 @@ class CommentsController < ApplicationController
 
     if @new_comment.save
       notify_subscribers(@game, @new_comment)
-      redirect_to game_path(@game), notice: I18n.t("controllers.comments.created")
+      redirect_to game_path(@game), notice: I18n.t('controllers.comments.created')
     else
-      flash.now[:alert] = I18n.t("controllers.error")
-      render "games/show"
+      flash.now[:alert] = I18n.t('controllers.error')
+      render 'games/show'
     end
   end
 
   def destroy
-    message = {notice: I18n.t("controllers.comments.destroyed")}
+    message = { notice: I18n.t('controllers.comments.destroyed') }
 
     if current_user_can_edit?(@comment)
       @comment.destroy!
     else
-      message = {alert: I18n.t("controllers.error")}
+      message = { alert: I18n.t('controllers.error') }
     end
 
     redirect_to game_path(@game), message

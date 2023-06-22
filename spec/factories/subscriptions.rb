@@ -7,8 +7,8 @@ FactoryBot.define do
     end
 
     trait :without_present_user do
-      user_name { "John" }
-      user_email { "john@mail.com" }
+      user_name { 'John' }
+      user_email { 'john@mail.com' }
     end
   end
 end

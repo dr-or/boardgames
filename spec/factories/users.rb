@@ -4,7 +4,7 @@ FactoryBot.define do
     sequence(:email) { |n| "john-doe#{n}@email.com" }
 
     after(:build) do |user|
-      user.password_confirmation = user.password = "123456"
+      user.password_confirmation = user.password = '123456'
       user.avatar.attach(io: File.open('spec/fixtures/anonymous.jpg'), filename: 'anonymous.jpg')
     end
   end

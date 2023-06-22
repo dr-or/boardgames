@@ -9,20 +9,20 @@ class SubscriptionsController < ApplicationController
     if check_recaptcha(@new_subscription) && @new_subscription.save
       GameMailer.subscription(@new_subscription).deliver_later
 
-      redirect_to game_path(@game), notice: I18n.t("controllers.subscriptions.created")
+      redirect_to game_path(@game), notice: I18n.t('controllers.subscriptions.created')
     else
-      flash.now[:alert] = I18n.t("controllers.error")
-      render "games/show"
+      flash.now[:alert] = I18n.t('controllers.error')
+      render 'games/show'
     end
   end
 
   def destroy
-    message = {notice: I18n.t("controllers.subscriptions.destroyed")}
+    message = { notice: I18n.t('controllers.subscriptions.destroyed') }
 
     if current_user_can_edit?(@subscription)
       @subscription.destroy
     else
-      message = {alert: I18n.t("controllers.error")}
+      message = { alert: I18n.t('controllers.error') }
     end
 
     redirect_to game_path(@game), message
@@ -43,6 +43,6 @@ class SubscriptionsController < ApplicationController
   end
 
   def check_recaptcha(model)
-    current_user.present? || verify_recaptcha(model: model)
+    current_user.present? || verify_recaptcha(model:)
   end
 end

@@ -36,8 +36,8 @@ class GamesController < ApplicationController
     @new_comment = @game.comments.build(params[:comment])
     @new_subscription = @game.subscriptions.build(params[:subscription])
   rescue Pundit::NotAuthorizedError
-    flash.now[:alert] = I18n.t("controllers.games.wrong_pincode") if params[:pincode].present?
-    render "password_form"
+    flash.now[:alert] = I18n.t('controllers.games.wrong_pincode') if params[:pincode].present?
+    render 'password_form'
   end
 
   def update

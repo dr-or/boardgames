@@ -15,10 +15,11 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 40 }
   validates :avatar, content_type: ['image/png', 'image/jpeg', 'image/jpg'],
-            size: { less_than: 1.megabyte }
+                     size: { less_than: 1.megabyte }
+
   private
 
   def link_subscriptions
-    Subscription.where(user_id: nil, user_email: self.email).update(user_id: self.id)
+    Subscription.where(user_id: nil, user_email: email).update(user_id: id)
   end
 end

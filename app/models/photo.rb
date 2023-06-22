@@ -2,7 +2,7 @@ class Photo < ApplicationRecord
   belongs_to :game
   belongs_to :user
 
-  scope :persisted, -> { where "id is NOT NULL" }
+  scope :persisted, -> { where 'id is NOT NULL' }
 
   has_one_attached :photo do |attachable|
     attachable.variant :thumb, resize_to_fit: [100, 100]

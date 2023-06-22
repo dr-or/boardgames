@@ -11,7 +11,7 @@ RSpec.describe Subscription, type: :model do
     it { is_expected.to validate_uniqueness_of(:user).scoped_to(:game_id) }
 
     let(:game) { create(:game) }
-    let(:internal_sub) { create(:subscription, :with_present_user, game: game, user: game.user) }
+    let(:internal_sub) { create(:subscription, :with_present_user, game:, user: game.user) }
     it 'raises the error' do
       expect { internal_sub }.to raise_error(ActiveRecord::RecordInvalid)
     end

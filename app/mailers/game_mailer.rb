@@ -12,7 +12,7 @@ class GameMailer < ApplicationMailer
 
     mail to: email, subject: default_i18n_subject(title: @game.title)
   end
-  
+
   def subscription(subscription)
     @game = subscription.game
     @email = subscription.user_email
