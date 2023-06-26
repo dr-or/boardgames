@@ -17,6 +17,10 @@ class User < ApplicationRecord
   validates :avatar, content_type: ['image/png', 'image/jpeg', 'image/jpg'],
                      size: { less_than: 1.megabyte }
 
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
+  end
+
   private
 
   def link_subscriptions
