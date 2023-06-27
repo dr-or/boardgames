@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @new_comment.user = current_user
 
     if @new_comment.save
-      notify_subscribers(@game, @new_comment)
+      MailingJob.perform_later(@new_comment)
       redirect_to game_path(@game), notice: I18n.t('controllers.comments.created')
     else
       flash.now[:alert] = I18n.t('controllers.error')
@@ -39,15 +39,5 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:body, :user_name)
-  end
-
-  def notify_subscribers(game, comment)
-    all_emails = (
-      game.subscriptions.map(&:user_email) + [game.user.email] - [comment.user&.email]
-    ).uniq
-
-    all_emails.each do |email|
-      GameMailer.comment(comment, email).deliver_later
-    end
   end
 end
