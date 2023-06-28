@@ -14,7 +14,7 @@ module ApplicationHelper
     photos = game.photos.persisted
 
     if photos.any?
-      url_for(photos.sample.photo)
+      url_for(photos.with_attached_photo.sample.photo)
     else
       asset_path('game.jpg')
     end

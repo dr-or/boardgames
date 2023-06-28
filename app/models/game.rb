@@ -10,7 +10,7 @@ class Game < ApplicationRecord
   validates :datetime, presence: true
 
   def visitors
-    (subscribers + [user]).uniq
+    (subscribers.with_attached_avatar + [user]).uniq
   end
 
   def valid_pincode?(code)

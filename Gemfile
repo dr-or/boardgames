@@ -32,6 +32,8 @@ end
 gem 'recaptcha'
 
 group :development do
+  gem 'bullet'
+
   gem 'capistrano', '~> 3.8'
   gem 'capistrano-rails', '~> 1.6'
   gem 'capistrano-rbenv', '~> 2.2'

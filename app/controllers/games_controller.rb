@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   after_action :verify_authorized, only: %i[edit show update destroy]
 
   def index
-    @games = Game.all
+    @games = Game.includes(%i[user]).all
   end
 
   def create

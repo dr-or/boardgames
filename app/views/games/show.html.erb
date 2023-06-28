@@ -32,7 +32,9 @@
   <div class="h3 mb-3"><%= t("views.games.show.participate") %></div>
   <div class="mb-5 ps-3">
     <%= render partial: "subscriptions/subscription",
-               collection: @game.subscriptions.except(@new_subscription) %>
+               collection: @game.subscriptions
+                                .except(@new_subscription)
+                                .includes(user: :avatar_attachment) %>
   </div>
 <% end %>
 
@@ -41,7 +43,10 @@
 <% end %>
 <% if @game.photos.any? %>
   <div class="mb-3">
-    <%= render partial: "photos/photo", collection: @game.photos.except(@new_photo) %>
+    <%= render partial: "photos/photo",
+               collection: @game.photos
+                                .except(@new_photo)
+                                .includes([:user, { photo_attachment: :blob }]) %>
   </div>
 <% end %>
 <% if current_user %>
@@ -55,5 +60,8 @@
   <%= render partial: "comments/form", locals: { comment: @new_comment || @game.comments.build } %>
 </div>
 <div class="mb-5">
-  <%= render partial: "comments/comment", collection: @game.comments.except(@new_comment) %>
+  <%= render partial: "comments/comment",
+             collection: @game.comments
+                              .except(@new_comment)
+                              .includes(%i[user]) %>
 </div>
