@@ -13,12 +13,14 @@ gem 'devise-i18n'
 gem 'ed25519', '>= 1.2', '< 2.0'
 gem 'image_processing', '>= 1.2'
 gem 'jsbundling-rails', '~> 1.1'
+gem "polaris_view_components", "~> 1.1"
 gem 'puma', '~> 5.0'
 gem 'pundit', '~> 2.3'
 gem 'rails', '~> 7.0.4'
 gem 'rails-i18n'
 gem 'resque'
 gem 'sprockets-rails'
+gem 'stimulus-rails'
 gem 'turbo-rails'
 
 group :development, :test do
