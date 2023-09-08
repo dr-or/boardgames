@@ -1,15 +1,17 @@
-<div class="card">
-  <img src="<%= game_photo(game) %>" class="card-img card-img-bg" alt="card-image">
-  <div class="card-img-overlay">
-    <h4 class="card-title truncate"><%= game.title %></h4>
-    <p class="card-text truncate"><%= game.address %></p>
-    <p class="card-text"><%= l game.datetime, format: :long %></p>
-    <div class="mb-2">
+<% games.each do |game| %>
+  <%= polaris_card(title: game.title) do |card| %>
+    <p><%= l game.datetime, format: :long %></p>
+    <div class="d-flex mb-2">
       <% game.visitors.each do |visitor| %>
-        <%= image_tag user_avatar_thumb(visitor), class: "img-icon rounded-circle", title: visitor.name %>
+        <p class="me-1">
+          <%= polaris_avatar(source: user_avatar_thumb(visitor),
+                             size: :extra_small,
+                             name: visitor.name) %>
+        </p>
       <% end %>
     </div>
-    <%= link_to t('views.games.game_card.game_link'), game_path(game),
-                class: "text-decoration-none", data: { turbo: false } %>
-  </div>
-</div>
+    <% card.with_secondary_footer_action(url: game_path(game), plain: true) do %>
+      <% t('views.games.game_card.game_link') %>
+    <% end %>
+  <% end %>
+<% end %>
