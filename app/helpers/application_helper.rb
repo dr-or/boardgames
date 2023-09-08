@@ -35,4 +35,8 @@ module ApplicationHelper
       asset_path('no_avatar.jpeg')
     end
   end
+
+  def unathenticated
+    current_user ? nil : t("views.games.index.unauthenticated")
+  end
 end

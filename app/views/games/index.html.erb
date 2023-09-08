@@ -1,7 +1,3 @@
-<div class="mb-3">
-  <% unless current_user %>
-    <p class="text-secondary ps-2"><%= t("views.games.index.unauthenticated") %></p>
-  <% end %>
-</div>
-
-<%= render partial: "game_grid", locals: { games: @games } %>
+<%= polaris_page(subtitle: unathenticated) do %>
+  <%= render partial: "game_grid", locals: { games: @games } %>
+<% end %>
