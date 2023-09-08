@@ -1,17 +1,19 @@
-<% games.each do |game| %>
+<span class="mb-3 me-2">
   <%= polaris_card(title: game.title) do |card| %>
     <p><%= l game.datetime, format: :long %></p>
-    <div class="d-flex mb-2">
+    <div class="d-flex">
       <% game.visitors.each do |visitor| %>
         <p class="me-1">
-          <%= polaris_avatar(source: user_avatar_thumb(visitor),
-                             size: :extra_small,
-                             name: visitor.name) %>
+          <%= polaris_tooltip(text: visitor.name, active: true, position: :bottom) do %>
+            <%= polaris_avatar(source: user_avatar_thumb(visitor),
+                               size: :extra_small,
+                               name: visitor.name) %>
+          <% end %>
         </p>
       <% end %>
     </div>
-    <% card.with_secondary_footer_action(url: game_path(game), plain: true) do %>
+    <% card.with_secondary_footer_action(url: game_path(game)) do %>
       <% t('views.games.game_card.game_link') %>
     <% end %>
   <% end %>
-<% end %>
+</span>
