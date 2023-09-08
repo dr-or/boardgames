@@ -1,9 +1,13 @@
-<%= render "shared/error_messages", model: photo %>
-<%= form_for([@game, photo], data: { turbo: false }, html: { multipart: true }) do |f| %>
-  <div class="mb-3">
-    <%= f.label :photo, class: "form-label mb-0" %>
-    <%= f.file_field :photo, class: "form-control" %>
-  </div>
-
-  <%= f.submit t("views.send"), class: "btn btn-primary" %>
+<%= form_for([@game, photo],
+             builder: Polaris::FormBuilder,
+             data: { turbo: false },
+             html: { multipart: true }) do |form| %>
+  <%= polaris_form_layout do |form_layout| %>
+    <% form_layout.with_item do %>
+      <%= form.polaris_dropzone(:photo, multiple: false) %>
+    <% end %>
+    <% form_layout.with_item do %>
+      <%= polaris_button(submit: true, primary: true) { t("views.send") } %>
+    <% end %>
+  <% end %>
 <% end %>

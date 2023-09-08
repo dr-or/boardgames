@@ -1,22 +1,19 @@
-<%= render "shared/error_messages", model: subscription %>
-<div class="row">
-  <div class="col-sm-4">
-    <%= form_for([@game, subscription], data: { turbo: false }) do |f| %>
-      <% unless user_signed_in? %>
-        <div class="mb-3">
-          <%= f.label :user_name, class: "form-label mb-0" %>
-          <%= f.text_field :user_name, class: "form-control" %>
-        </div>
-
-        <div class="mb-3">
-          <%= f.label :user_email, class: "form-label mb-0" %>
-          <%= f.text_field :user_email, class: "form-control" %>
-        </div>
-
-        <div class="mb-3"><%= recaptcha_tags %></div>
+<%= form_for([@game, subscription], builder: Polaris::FormBuilder, data: { turbo: false }) do |form| %>
+  <%= polaris_form_layout do |form_layout| %>
+    <% unless user_signed_in? %>
+      <% form_layout.with_item do %>
+        <%= form.polaris_text_field(:user_name) %>
       <% end %>
-
-      <%= f.submit t("views.subscriptions.form.subscribe"), class: "btn btn-primary" %>
+      <% form_layout.with_item do %>
+        <%= form.polaris_text_field(:user_email) %>
+      <% end %>
+      <% form_layout.with_item do %>
+        <%= recaptcha_tags %>
+      <% end %>
     <% end %>
-  </div>
-</div>
+
+    <% form_layout.with_item do %>
+      <%= polaris_button(submit: true, primary: true) { t("views.subscriptions.form.subscribe") } %>
+    <% end %>
+  <% end %>
+<% end %>
