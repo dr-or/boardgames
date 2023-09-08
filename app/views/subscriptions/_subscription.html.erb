@@ -1,12 +1,30 @@
-<span class="me-3">
-  <% if subscription.user.present? %>
-    <span><%= render partial: "users/user", locals: { user: subscription.user } %></span>
-  <% else %>
-    <span><%= subscription.user_name %></span>
+<% url = subscription.user.present? ? user_path(subscription.user) : nil %>
+<%= polaris_card(sectioned: false) do %>
+  <%= polaris_resource_list do %>
+    <%= polaris_resource_item(url: url) do |c| %>
+      <% c.with_media do %>
+        <% if url %>
+          <%= polaris_avatar(source: user_avatar_thumb(subscription.user)) %>
+        <% else %>
+          <%= polaris_avatar(shape: :square) %>
+        <% end %>
+      <% end %>
+      <%= polaris_stack do |stack| %>
+        <% stack.with_item(fill: true) do %>
+          <h3>
+            <%= polaris_text_style(variation: :strong) { subscription.user_name } %>
+          </h3>
+        <% end %>
+        <% stack.with_item do %>
+          <% if current_user_can_edit?(subscription) %>
+            <%= polaris_button_to(game_subscription_path(subscription.game, subscription),
+                                  method: :delete,
+                                  data: { turbo_confirm: t("views.deletion_confirm") }) do |button| %>
+              <% button.with_icon(name: "DeleteMinor", size: :small) %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
   <% end %>
-  <% if current_user_can_edit?(subscription) %>
-    <%= button_to bi_icon("x"), game_subscription_path(subscription.game, subscription),
-                  method: :delete, class: "btn p-0", form_class: "d-inline",
-                  data: { turbo_confirm: t("views.deletion_confirm") }, title: t("views.delete") %>
-  <% end %>
-</span>
+<% end %>
