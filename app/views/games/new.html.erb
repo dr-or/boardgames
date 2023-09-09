@@ -1,3 +1,3 @@
-<div class="h2"><%= t("views.games.new.schedule_game") %></div>
-	
+<%= polaris_text(variant: :heading2xl, as: :h3) { t("views.games.new.schedule_game") } %>
+<%= polaris_spacer(vertical: :loose) %>
 <%= render 'form', game: @game %>

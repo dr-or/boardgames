@@ -50,9 +50,8 @@
   <% end %>
 
   <% if @game.photos.any? || current_user %>
-    <div class="mb-3">
-      <%= polaris_text(variant: :headingLg, as: :h5) { t("views.games.show.photos") } %>
-    </div>
+    <%= polaris_text(variant: :headingLg, as: :h5) { t("views.games.show.photos") } %>
+    <%= polaris_spacer(vertical: :loose) %>
   <% end %>
   <% if @game.photos.any? %>
     <div class="mb-5">
