@@ -5,7 +5,7 @@
         <%= form.polaris_text_field(:user_name) %>
       <% end %>
       <% form_layout.with_item do %>
-        <%= form.polaris_text_field(:user_email) %>
+        <%= form.polaris_text_field(:user_email, type: :email) %>
       <% end %>
       <% form_layout.with_item do %>
         <%= recaptcha_tags %>

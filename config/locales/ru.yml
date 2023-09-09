@@ -126,10 +126,10 @@ ru:
       password_form:
         pincode_access: Доступ к игре только по пин-коду
       show:
-        comments: "Комментарии:"
-        participate: "Участвуют:"
+        initiator: Инициатор
+        comments: Комментарии
+        participate: Участвуют
         photos: Фотографии
-        scheduled_game: "планирует сыграть в:"
 
     layouts:
       sign_out: Выйти
